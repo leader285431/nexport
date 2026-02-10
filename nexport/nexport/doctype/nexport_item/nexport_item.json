@@ -1,0 +1,217 @@
+{
+	"actions": [],
+	"autoname": "field:sku",
+	"creation": "2026-02-10 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"item_name",
+		"sku",
+		"customs_name",
+		"hs_code",
+		"category",
+		"sub_category",
+		"column_break_basic",
+		"supplier",
+		"source_currency",
+		"source_price",
+		"weight_kg",
+		"section_stock",
+		"stock_physical",
+		"stock_declared",
+		"section_cost",
+		"cost_landed",
+		"cost_declared",
+		"column_break_cost",
+		"overhead_pct",
+		"markup_multiplier",
+		"section_price_history",
+		"price_history"
+	],
+	"fields": [
+		{
+			"fieldname": "item_name",
+			"fieldtype": "Data",
+			"label": "Item Name",
+			"reqd": 1
+		},
+		{
+			"fieldname": "sku",
+			"fieldtype": "Data",
+			"label": "SKU",
+			"read_only": 1,
+			"unique": 1
+		},
+		{
+			"fieldname": "customs_name",
+			"fieldtype": "Data",
+			"label": "Customs Name",
+			"reqd": 1,
+			"description": "報關通用名稱"
+		},
+		{
+			"fieldname": "hs_code",
+			"fieldtype": "Data",
+			"label": "HS Code"
+		},
+		{
+			"fieldname": "category",
+			"fieldtype": "Data",
+			"label": "Category"
+		},
+		{
+			"fieldname": "sub_category",
+			"fieldtype": "Data",
+			"label": "Sub Category"
+		},
+		{
+			"fieldname": "column_break_basic",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "supplier",
+			"fieldtype": "Link",
+			"label": "Supplier",
+			"options": "Supplier"
+		},
+		{
+			"fieldname": "source_currency",
+			"fieldtype": "Link",
+			"label": "Source Currency",
+			"options": "Currency"
+		},
+		{
+			"fieldname": "source_price",
+			"fieldtype": "Currency",
+			"label": "Source Price",
+			"description": "Foreign unit price"
+		},
+		{
+			"fieldname": "weight_kg",
+			"fieldtype": "Float",
+			"label": "Weight (kg)"
+		},
+		{
+			"fieldname": "section_stock",
+			"fieldtype": "Section Break",
+			"label": "Stock"
+		},
+		{
+			"fieldname": "stock_physical",
+			"fieldtype": "Float",
+			"default": "0",
+			"label": "Stock (Physical)",
+			"read_only": 1
+		},
+		{
+			"fieldname": "stock_declared",
+			"fieldtype": "Float",
+			"default": "0",
+			"label": "Stock (Declared)",
+			"read_only": 1
+		},
+		{
+			"fieldname": "section_cost",
+			"fieldtype": "Section Break",
+			"label": "Cost",
+			"permlevel": 1
+		},
+		{
+			"fieldname": "cost_landed",
+			"fieldtype": "Currency",
+			"label": "Cost Landed (Physical)",
+			"read_only": 1,
+			"permlevel": 1
+		},
+		{
+			"fieldname": "cost_declared",
+			"fieldtype": "Currency",
+			"label": "Cost Declared",
+			"read_only": 1,
+			"permlevel": 1
+		},
+		{
+			"fieldname": "column_break_cost",
+			"fieldtype": "Column Break",
+			"permlevel": 1
+		},
+		{
+			"fieldname": "overhead_pct",
+			"fieldtype": "Percent",
+			"label": "Overhead %",
+			"permlevel": 1
+		},
+		{
+			"fieldname": "markup_multiplier",
+			"fieldtype": "Float",
+			"default": "1.0",
+			"label": "Markup Multiplier",
+			"permlevel": 1
+		},
+		{
+			"fieldname": "section_price_history",
+			"fieldtype": "Section Break",
+			"label": "Price History",
+			"permlevel": 1
+		},
+		{
+			"fieldname": "price_history",
+			"fieldtype": "Table",
+			"label": "Price History",
+			"options": "NexPort Price History",
+			"permlevel": 1
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"links": [],
+	"modified": "2026-02-10 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "NexPort",
+	"name": "NexPort Item",
+	"naming_rule": "By fieldname",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "NexPort Admin",
+			"share": 1,
+			"write": 1,
+			"permlevel": 0
+		},
+		{
+			"read": 1,
+			"write": 1,
+			"role": "NexPort Admin",
+			"permlevel": 1
+		},
+		{
+			"read": 1,
+			"role": "NexPort Finance",
+			"permlevel": 0
+		},
+		{
+			"read": 1,
+			"role": "NexPort Finance",
+			"permlevel": 1
+		},
+		{
+			"read": 1,
+			"role": "NexPort Warehouse",
+			"permlevel": 0
+		},
+		{
+			"read": 1,
+			"role": "NexPort Sales",
+			"permlevel": 0
+		}
+	],
+	"sort_field": "modified",
+	"sort_order": "DESC",
+	"track_changes": 1
+}

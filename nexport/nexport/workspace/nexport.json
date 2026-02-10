@@ -19,6 +19,15 @@
 			"link_type": "DocType",
 			"onboard": 1,
 			"type": "Link"
+		},
+		{
+			"description": "Item Master with dual-track inventory",
+			"icon": "stock",
+			"label": "NexPort Item",
+			"link_to": "NexPort Item",
+			"link_type": "DocType",
+			"onboard": 1,
+			"type": "Link"
 		}
 	],
 	"modified": "2026-02-10 00:00:00.000000",
@@ -35,6 +44,11 @@
 		{
 			"label": "NexPort Settings",
 			"link_to": "NexPort Settings",
+			"type": "DocType"
+		},
+		{
+			"label": "NexPort Item",
+			"link_to": "NexPort Item",
 			"type": "DocType"
 		}
 	],
