@@ -1,0 +1,88 @@
+{
+	"actions": [],
+	"creation": "2026-02-10 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"company_name",
+		"default_currency",
+		"supported_currencies",
+		"column_break_1",
+		"default_markup_multiplier",
+		"default_gap_deadline_days"
+	],
+	"fields": [
+		{
+			"fieldname": "company_name",
+			"fieldtype": "Data",
+			"label": "Company Name",
+			"reqd": 1
+		},
+		{
+			"default": "THB",
+			"fieldname": "default_currency",
+			"fieldtype": "Link",
+			"label": "Default Currency",
+			"options": "Currency",
+			"reqd": 1
+		},
+		{
+			"fieldname": "supported_currencies",
+			"fieldtype": "Table MultiSelect",
+			"label": "Supported Currencies",
+			"options": "Currency"
+		},
+		{
+			"fieldname": "column_break_1",
+			"fieldtype": "Column Break"
+		},
+		{
+			"default": "1.0",
+			"fieldname": "default_markup_multiplier",
+			"fieldtype": "Float",
+			"label": "Default Markup Multiplier",
+			"reqd": 1
+		},
+		{
+			"default": "30",
+			"fieldname": "default_gap_deadline_days",
+			"fieldtype": "Int",
+			"label": "Default Gap Deadline (Days)",
+			"reqd": 1
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"issingle": 1,
+	"links": [],
+	"modified": "2026-02-10 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "NexPort",
+	"name": "NexPort Settings",
+	"naming_rule": "Expression (old style)",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"print": 1,
+			"read": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"print": 1,
+			"read": 1,
+			"role": "NexPort Admin",
+			"share": 1,
+			"write": 1
+		}
+	],
+	"sort_field": "modified",
+	"sort_order": "DESC",
+	"track_changes": 1
+}

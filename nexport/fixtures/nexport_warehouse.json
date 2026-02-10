@@ -1,0 +1,7 @@
+{
+	"doctype": "Role",
+	"name": "NexPort Warehouse",
+	"role_name": "NexPort Warehouse",
+	"desk_access": 1,
+	"is_custom": 1
+}
