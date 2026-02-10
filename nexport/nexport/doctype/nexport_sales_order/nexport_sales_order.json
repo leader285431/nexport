@@ -4,7 +4,7 @@
 	"creation": "2026-02-10 00:00:00.000000",
 	"doctype": "DocType",
 	"engine": "InnoDB",
-	"is_submittable": 0,
+	"is_submittable": 1,
 	"field_order": [
 		"customer",
 		"status",
@@ -13,7 +13,8 @@
 		"column_break_1",
 		"total_amount",
 		"section_items",
-		"items"
+		"items",
+		"amended_from"
 	],
 	"fields": [
 		{
@@ -64,6 +65,15 @@
 			"label": "Items",
 			"options": "NexPort SO Item",
 			"reqd": 1
+		},
+		{
+			"fieldname": "amended_from",
+			"fieldtype": "Link",
+			"label": "Amended From",
+			"no_copy": 1,
+			"options": "NexPort Sales Order",
+			"print_hide": 1,
+			"read_only": 1
 		}
 	],
 	"index_web_pages_for_search": 0,
@@ -85,11 +95,15 @@
 			"report": 1,
 			"role": "NexPort Admin",
 			"share": 1,
+			"submit": 1,
+			"cancel": 1,
 			"write": 1
 		},
 		{
 			"create": 1,
 			"read": 1,
+			"submit": 1,
+			"cancel": 1,
 			"write": 1,
 			"role": "NexPort Sales"
 		},

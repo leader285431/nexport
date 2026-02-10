@@ -5,14 +5,9 @@ from __future__ import annotations
 
 from frappe.model.document import Document
 
+from nexport.utils import compute_line_totals
+
 
 class NexPortSalesOrder(Document):
 	def validate(self) -> None:
-		self._compute_totals()
-
-	def _compute_totals(self) -> None:
-		total = 0.0
-		for row in self.items:
-			row.amount = (row.quantity or 0) * (row.unit_price or 0)
-			total += row.amount
-		self.total_amount = total
+		compute_line_totals(self)

@@ -21,6 +21,14 @@ if TYPE_CHECKING:
 	)
 
 
+def _log_stock_change(item_name: str, dn_name: str, physical_delta: float, declared_delta: float, action: str) -> None:
+	"""Add a Comment log to the item for audit trail."""
+	frappe.get_doc("NexPort Item", item_name).add_comment(
+		"Info",
+		f"Stock {action} via DN {dn_name}: physical={physical_delta:+g}, declared={declared_delta:+g}",
+	)
+
+
 def deduct_stock(dn: NexPortDeliveryNote) -> None:
 	"""Deduct stock for all items in a Delivery Note.
 
@@ -28,16 +36,6 @@ def deduct_stock(dn: NexPortDeliveryNote) -> None:
 	- Lending: deduct only physical
 	"""
 	for row in dn.items:
-		# Validate physical stock before deduction
-		current = frappe.db.get_value(
-			"NexPort Item", row.item, "stock_physical"
-		)
-		if (current or 0) < row.quantity:
-			frappe.throw(
-				f"Insufficient physical stock for {row.item}: "
-				f"available {current}, requested {row.quantity}"
-			)
-
 		physical_delta = -row.quantity
 		declared_delta = 0.0 if dn.is_lending else -row.quantity
 
@@ -46,6 +44,7 @@ def deduct_stock(dn: NexPortDeliveryNote) -> None:
 			physical_delta=physical_delta,
 			declared_delta=declared_delta,
 		)
+		_log_stock_change(row.item, dn.name, physical_delta, declared_delta, "deducted")
 
 
 def restore_stock(dn: NexPortDeliveryNote) -> None:
@@ -59,3 +58,4 @@ def restore_stock(dn: NexPortDeliveryNote) -> None:
 			physical_delta=physical_delta,
 			declared_delta=declared_delta,
 		)
+		_log_stock_change(row.item, dn.name, physical_delta, declared_delta, "restored")

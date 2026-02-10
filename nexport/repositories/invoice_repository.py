@@ -11,6 +11,8 @@ from __future__ import annotations
 
 import frappe
 
+from nexport.constants import InvoiceStatus
+
 
 def get_unpaid_invoices(entity_type: str, entity: str) -> list[dict]:
 	"""Get all unpaid/partial invoices for an entity."""
@@ -19,7 +21,7 @@ def get_unpaid_invoices(entity_type: str, entity: str) -> list[dict]:
 		filters={
 			"entity_type": entity_type,
 			"entity": entity,
-			"status": ["in", ["Unpaid", "Partial", "Overdue"]],
+			"status": ["in", [InvoiceStatus.UNPAID, InvoiceStatus.PARTIAL, InvoiceStatus.OVERDUE]],
 		},
 		fields=["name", "total_amount", "status", "invoice_date", "currency"],
 		order_by="invoice_date asc",

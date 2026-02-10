@@ -6,22 +6,18 @@ from __future__ import annotations
 import frappe
 from frappe.model.document import Document
 
+from nexport.constants import QuoteStatus
+from nexport.utils import compute_line_totals
+
 
 class NexPortQuote(Document):
 	def validate(self) -> None:
-		self._compute_totals()
-
-	def _compute_totals(self) -> None:
-		total = 0.0
-		for row in self.items:
-			row.amount = (row.quantity or 0) * (row.unit_price or 0)
-			total += row.amount
-		self.total_amount = total
+		compute_line_totals(self)
 
 	@frappe.whitelist()
 	def create_sales_order(self) -> str:
 		"""Convert accepted quote to Sales Order."""
-		if self.status != "Accepted":
+		if self.status != QuoteStatus.ACCEPTED:
 			frappe.throw("Only accepted quotes can be converted to Sales Orders")
 
 		so = frappe.new_doc("NexPort Sales Order")

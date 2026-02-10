@@ -11,6 +11,7 @@ to prevent lost-update race conditions on stock/cost fields.
 from __future__ import annotations
 
 import frappe
+from frappe.utils import today
 
 
 def update_stock_atomic(
@@ -71,6 +72,13 @@ def update_cost_atomic(
 	item_name: str,
 	cost_landed_delta: float = 0.0,
 	cost_declared_delta: float = 0.0,
+	*,
+	record_history: bool = True,
+	history_type: str = "ADJUSTMENT",
+	source: str = "",
+	exchange_rate: float = 0.0,
+	foreign_amount: float = 0.0,
+	is_temporary_rate: bool = False,
 ) -> None:
 	"""Atomically update cost fields using SQL col = col + delta."""
 	if cost_landed_delta == 0.0 and cost_declared_delta == 0.0:
@@ -91,3 +99,57 @@ def update_cost_atomic(
 			"cost_declared_delta": cost_declared_delta,
 		},
 	)
+
+	if record_history:
+		# Fetch updated costs for history snapshot
+		item = frappe.db.get_value(
+			"NexPort Item", item_name,
+			["cost_landed", "cost_declared"], as_dict=True,
+		)
+		if item and cost_landed_delta != 0.0:
+			record_price_change(
+				item_name=item_name,
+				history_type=history_type,
+				cost_type="PHYSICAL",
+				thb_unit_price=item.cost_landed,
+				source=source,
+				exchange_rate=exchange_rate,
+				foreign_amount=foreign_amount,
+				is_temporary_rate=is_temporary_rate,
+			)
+		if item and cost_declared_delta != 0.0:
+			record_price_change(
+				item_name=item_name,
+				history_type=history_type,
+				cost_type="DECLARED",
+				thb_unit_price=item.cost_declared,
+				source=source,
+				exchange_rate=exchange_rate,
+				foreign_amount=foreign_amount,
+				is_temporary_rate=is_temporary_rate,
+			)
+
+
+def record_price_change(
+	item_name: str,
+	history_type: str,
+	cost_type: str,
+	thb_unit_price: float,
+	source: str = "",
+	exchange_rate: float = 0.0,
+	foreign_amount: float = 0.0,
+	is_temporary_rate: bool = False,
+) -> None:
+	"""Append a NexPort Price History child row to the item."""
+	item = frappe.get_doc("NexPort Item", item_name)
+	item.append("price_history", {
+		"date": today(),
+		"type": history_type,
+		"cost_type": cost_type,
+		"thb_unit_price": thb_unit_price,
+		"source": source,
+		"exchange_rate": exchange_rate or None,
+		"foreign_amount": foreign_amount or None,
+		"is_temporary_rate": 1 if is_temporary_rate else 0,
+	})
+	item.save(ignore_permissions=True)

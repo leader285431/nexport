@@ -16,7 +16,7 @@ class TestNexPortPurchaseOrder(FrappeTestCase):
 				{"item": "TEST-002", "quantity": 5, "unit_price": 100},
 			],
 		})
-		po._compute_totals()
+		po.validate()
 		self.assertEqual(po.total_amount, 1000)
 
 	def test_supplementary_po_fields(self) -> None:

@@ -33,15 +33,15 @@ def generate_sku(
 
 	prefix = f"{supplier_code}-{category_code}-{sub_category_code}"
 
-	# Find max existing sequence for this prefix
+	# Find max existing sequence for this prefix (use REGEXP for exact match)
 	result = frappe.db.sql(
 		"""
 		SELECT sku FROM `tabNexPort Item`
-		WHERE sku LIKE %s
+		WHERE sku REGEXP %s
 		ORDER BY sku DESC
 		LIMIT 1
 		""",
-		(f"{prefix}-%",),
+		(f"^{prefix}-[0-9]+$",),
 		as_dict=True,
 	)
 

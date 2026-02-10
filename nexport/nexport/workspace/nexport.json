@@ -28,6 +28,46 @@
 			"link_type": "DocType",
 			"onboard": 1,
 			"type": "Link"
+		},
+		{
+			"description": "Sales quotations",
+			"icon": "file",
+			"label": "NexPort Quote",
+			"link_to": "NexPort Quote",
+			"link_type": "DocType",
+			"type": "Link"
+		},
+		{
+			"description": "Confirmed sales orders",
+			"icon": "file",
+			"label": "NexPort Sales Order",
+			"link_to": "NexPort Sales Order",
+			"link_type": "DocType",
+			"type": "Link"
+		},
+		{
+			"description": "Delivery notes for shipments",
+			"icon": "stock",
+			"label": "NexPort Delivery Note",
+			"link_to": "NexPort Delivery Note",
+			"link_type": "DocType",
+			"type": "Link"
+		},
+		{
+			"description": "Purchase orders to suppliers",
+			"icon": "file",
+			"label": "NexPort Purchase Order",
+			"link_to": "NexPort Purchase Order",
+			"link_type": "DocType",
+			"type": "Link"
+		},
+		{
+			"description": "Invoices (AP/AR)",
+			"icon": "file",
+			"label": "NexPort Invoice",
+			"link_to": "NexPort Invoice",
+			"link_type": "DocType",
+			"type": "Link"
 		}
 	],
 	"modified": "2026-02-10 00:00:00.000000",
@@ -49,6 +89,31 @@
 		{
 			"label": "NexPort Item",
 			"link_to": "NexPort Item",
+			"type": "DocType"
+		},
+		{
+			"label": "NexPort Quote",
+			"link_to": "NexPort Quote",
+			"type": "DocType"
+		},
+		{
+			"label": "NexPort Sales Order",
+			"link_to": "NexPort Sales Order",
+			"type": "DocType"
+		},
+		{
+			"label": "NexPort Delivery Note",
+			"link_to": "NexPort Delivery Note",
+			"type": "DocType"
+		},
+		{
+			"label": "NexPort Purchase Order",
+			"link_to": "NexPort Purchase Order",
+			"type": "DocType"
+		},
+		{
+			"label": "NexPort Invoice",
+			"link_to": "NexPort Invoice",
 			"type": "DocType"
 		}
 	],
