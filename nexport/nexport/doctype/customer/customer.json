@@ -1,0 +1,82 @@
+{
+	"actions": [],
+	"autoname": "field:customer_name",
+	"creation": "2026-02-10 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"customer_name",
+		"country",
+		"column_break_1",
+		"contact_person",
+		"email",
+		"phone"
+	],
+	"fields": [
+		{
+			"fieldname": "customer_name",
+			"fieldtype": "Data",
+			"label": "Customer Name",
+			"reqd": 1,
+			"unique": 1
+		},
+		{
+			"fieldname": "country",
+			"fieldtype": "Data",
+			"label": "Country"
+		},
+		{
+			"fieldname": "column_break_1",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "contact_person",
+			"fieldtype": "Data",
+			"label": "Contact Person"
+		},
+		{
+			"fieldname": "email",
+			"fieldtype": "Data",
+			"label": "Email",
+			"options": "Email"
+		},
+		{
+			"fieldname": "phone",
+			"fieldtype": "Data",
+			"label": "Phone"
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"links": [],
+	"modified": "2026-02-10 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "NexPort",
+	"name": "Customer",
+	"naming_rule": "By fieldname",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "NexPort Admin",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"read": 1,
+			"role": "NexPort Sales"
+		},
+		{
+			"read": 1,
+			"role": "NexPort Finance"
+		}
+	],
+	"sort_field": "modified",
+	"sort_order": "DESC",
+	"track_changes": 1
+}

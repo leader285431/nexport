@@ -1,0 +1,117 @@
+{
+	"actions": [],
+	"autoname": "NP-QT-.YYYY.-.####",
+	"creation": "2026-02-10 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"is_submittable": 1,
+	"field_order": [
+		"customer",
+		"status",
+		"currency",
+		"valid_until",
+		"column_break_1",
+		"total_amount",
+		"section_items",
+		"items",
+		"amended_from"
+	],
+	"fields": [
+		{
+			"fieldname": "customer",
+			"fieldtype": "Link",
+			"label": "Customer",
+			"options": "Customer",
+			"reqd": 1
+		},
+		{
+			"default": "Draft",
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"label": "Status",
+			"options": "Draft\nSent\nAccepted\nRejected\nExpired",
+			"reqd": 1
+		},
+		{
+			"fieldname": "currency",
+			"fieldtype": "Link",
+			"label": "Currency",
+			"options": "Currency"
+		},
+		{
+			"fieldname": "valid_until",
+			"fieldtype": "Date",
+			"label": "Valid Until"
+		},
+		{
+			"fieldname": "column_break_1",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "total_amount",
+			"fieldtype": "Currency",
+			"label": "Total Amount",
+			"read_only": 1
+		},
+		{
+			"fieldname": "section_items",
+			"fieldtype": "Section Break",
+			"label": "Items"
+		},
+		{
+			"fieldname": "items",
+			"fieldtype": "Table",
+			"label": "Items",
+			"options": "Quote Item",
+			"reqd": 1
+		},
+		{
+			"fieldname": "amended_from",
+			"fieldtype": "Link",
+			"label": "Amended From",
+			"no_copy": 1,
+			"options": "Quote",
+			"print_hide": 1,
+			"read_only": 1
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"links": [],
+	"modified": "2026-02-10 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "NexPort",
+	"name": "Quote",
+	"naming_rule": "Expression (old style)",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "NexPort Admin",
+			"share": 1,
+			"submit": 1,
+			"cancel": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"read": 1,
+			"submit": 1,
+			"cancel": 1,
+			"write": 1,
+			"role": "NexPort Sales"
+		},
+		{
+			"read": 1,
+			"role": "NexPort Finance"
+		}
+	],
+	"sort_field": "modified",
+	"sort_order": "DESC",
+	"track_changes": 1
+}

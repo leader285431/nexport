@@ -2,7 +2,7 @@
 # For license information, please see license.txt
 
 """
-Item Repository — atomic data access for NexPort Item.
+Item Repository — atomic data access for Item.
 
 Uses atomic SQL (SET col = col + delta) per CONCURRENCY_CONTROL.md §1
 to prevent lost-update race conditions on stock/cost fields.
@@ -29,7 +29,7 @@ def update_stock_atomic(
 
 	frappe.db.sql(
 		"""
-		UPDATE `tabNexPort Item`
+		UPDATE `tabItem`
 		SET
 			stock_physical = stock_physical + %(physical_delta)s,
 			stock_declared = stock_declared + %(declared_delta)s,
@@ -47,7 +47,7 @@ def update_stock_atomic(
 	result = frappe.db.sql(
 		"""
 		SELECT stock_physical, stock_declared
-		FROM `tabNexPort Item`
+		FROM `tabItem`
 		WHERE name = %(item_name)s
 		""",
 		{"item_name": item_name},
@@ -86,7 +86,7 @@ def update_cost_atomic(
 
 	frappe.db.sql(
 		"""
-		UPDATE `tabNexPort Item`
+		UPDATE `tabItem`
 		SET
 			cost_landed = cost_landed + %(cost_landed_delta)s,
 			cost_declared = cost_declared + %(cost_declared_delta)s,
@@ -103,7 +103,7 @@ def update_cost_atomic(
 	if record_history:
 		# Fetch updated costs for history snapshot
 		item = frappe.db.get_value(
-			"NexPort Item", item_name,
+			"Item", item_name,
 			["cost_landed", "cost_declared"], as_dict=True,
 		)
 		if item and cost_landed_delta != 0.0:
@@ -140,8 +140,8 @@ def record_price_change(
 	foreign_amount: float = 0.0,
 	is_temporary_rate: bool = False,
 ) -> None:
-	"""Append a NexPort Price History child row to the item."""
-	item = frappe.get_doc("NexPort Item", item_name)
+	"""Append a Price History child row to the item."""
+	item = frappe.get_doc("Item", item_name)
 	item.append("price_history", {
 		"date": today(),
 		"type": history_type,

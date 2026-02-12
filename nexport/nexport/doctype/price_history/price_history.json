@@ -1,0 +1,84 @@
+{
+	"actions": [],
+	"creation": "2026-02-10 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"date",
+		"type",
+		"cost_type",
+		"foreign_amount",
+		"exchange_rate",
+		"is_temporary_rate",
+		"thb_unit_price",
+		"source"
+	],
+	"fields": [
+		{
+			"fieldname": "date",
+			"fieldtype": "Date",
+			"in_list_view": 1,
+			"label": "Date",
+			"reqd": 1
+		},
+		{
+			"fieldname": "type",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "Type",
+			"options": "PURCHASE\nREVALUATION\nDECLARED\nADJUSTMENT",
+			"reqd": 1
+		},
+		{
+			"fieldname": "cost_type",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "Cost Type",
+			"options": "PHYSICAL\nDECLARED",
+			"reqd": 1
+		},
+		{
+			"fieldname": "foreign_amount",
+			"fieldtype": "Currency",
+			"label": "Foreign Amount"
+		},
+		{
+			"fieldname": "exchange_rate",
+			"fieldtype": "Float",
+			"label": "Exchange Rate",
+			"precision": "6"
+		},
+		{
+			"fieldname": "is_temporary_rate",
+			"fieldtype": "Check",
+			"default": "0",
+			"label": "Is Temporary Rate"
+		},
+		{
+			"fieldname": "thb_unit_price",
+			"fieldtype": "Currency",
+			"in_list_view": 1,
+			"label": "THB Unit Price",
+			"reqd": 1
+		},
+		{
+			"fieldname": "source",
+			"fieldtype": "Data",
+			"in_list_view": 1,
+			"label": "Source"
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"istable": 1,
+	"links": [],
+	"modified": "2026-02-10 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "NexPort",
+	"name": "Price History",
+	"naming_rule": "Random",
+	"owner": "Administrator",
+	"permissions": [],
+	"sort_field": "modified",
+	"sort_order": "DESC",
+	"track_changes": 0
+}

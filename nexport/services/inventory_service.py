@@ -16,20 +16,20 @@ import frappe
 from nexport.repositories.item_repository import update_stock_atomic
 
 if TYPE_CHECKING:
-	from nexport.nexport.doctype.nexport_delivery_note.nexport_delivery_note import (
-		NexPortDeliveryNote,
+	from nexport.nexport.doctype.delivery_note.delivery_note import (
+		DeliveryNote,
 	)
 
 
 def _log_stock_change(item_name: str, dn_name: str, physical_delta: float, declared_delta: float, action: str) -> None:
 	"""Add a Comment log to the item for audit trail."""
-	frappe.get_doc("NexPort Item", item_name).add_comment(
+	frappe.get_doc("Item", item_name).add_comment(
 		"Info",
 		f"Stock {action} via DN {dn_name}: physical={physical_delta:+g}, declared={declared_delta:+g}",
 	)
 
 
-def deduct_stock(dn: NexPortDeliveryNote) -> None:
+def deduct_stock(dn: DeliveryNote) -> None:
 	"""Deduct stock for all items in a Delivery Note.
 
 	- Normal: deduct both physical and declared
@@ -47,7 +47,7 @@ def deduct_stock(dn: NexPortDeliveryNote) -> None:
 		_log_stock_change(row.item, dn.name, physical_delta, declared_delta, "deducted")
 
 
-def restore_stock(dn: NexPortDeliveryNote) -> None:
+def restore_stock(dn: DeliveryNote) -> None:
 	"""Restore stock when a Delivery Note is cancelled (reverse of deduct)."""
 	for row in dn.items:
 		physical_delta = row.quantity

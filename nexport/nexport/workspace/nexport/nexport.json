@@ -1,0 +1,168 @@
+{
+	"charts": [],
+	"content": "[{\"id\":\"nexport_header\",\"type\":\"header\",\"data\":{\"text\":\"<b>NexPort ERP</b>\",\"col\":12}},{\"id\":\"nexport_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"nexport_shortcuts_2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quote\",\"col\":3}},{\"id\":\"nexport_shortcuts_3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"id\":\"nexport_shortcuts_4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Order\",\"col\":3}},{\"id\":\"nexport_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"nexport_card_1\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}},{\"id\":\"nexport_card_2\",\"type\":\"card\",\"data\":{\"card_name\":\"Sales\",\"col\":4}},{\"id\":\"nexport_card_3\",\"type\":\"card\",\"data\":{\"card_name\":\"Procurement & Finance\",\"col\":4}}]",
+	"creation": "2026-02-10 00:00:00.000000",
+	"custom_blocks": [],
+	"doctype": "Workspace",
+	"for_user": "",
+	"hide_custom": 0,
+	"icon": "setting",
+	"idx": 0,
+	"is_default": 0,
+	"is_hidden": 0,
+	"is_standard": 1,
+	"label": "NexPort",
+	"links": [
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Masters",
+			"link_count": 4,
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Card Break"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "NexPort Settings",
+			"link_to": "NexPort Settings",
+			"link_type": "DocType",
+			"onboard": 1,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Item",
+			"link_to": "Item",
+			"link_type": "DocType",
+			"onboard": 1,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Supplier",
+			"link_to": "Supplier",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Customer",
+			"link_to": "Customer",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Sales",
+			"link_count": 3,
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Card Break"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Quote",
+			"link_to": "Quote",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Sales Order",
+			"link_to": "Sales Order",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Delivery Note",
+			"link_to": "Delivery Note",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Procurement & Finance",
+			"link_count": 2,
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Card Break"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Purchase Order",
+			"link_to": "Purchase Order",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Invoice",
+			"link_to": "Invoice",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		}
+	],
+	"modified": "2026-02-11 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "NexPort",
+	"name": "NexPort",
+	"number_cards": [],
+	"owner": "Administrator",
+	"parent_page": "",
+	"public": 1,
+	"quick_lists": [],
+	"restrict_to_domain": "",
+	"roles": [],
+	"sequence_id": 10,
+	"shortcuts": [
+		{
+			"color": "",
+			"doc_view": "List",
+			"label": "Item",
+			"link_to": "Item",
+			"type": "DocType"
+		},
+		{
+			"color": "",
+			"doc_view": "List",
+			"label": "Quote",
+			"link_to": "Quote",
+			"type": "DocType"
+		},
+		{
+			"color": "",
+			"doc_view": "List",
+			"label": "Sales Order",
+			"link_to": "Sales Order",
+			"type": "DocType"
+		},
+		{
+			"color": "",
+			"doc_view": "List",
+			"label": "Purchase Order",
+			"link_to": "Purchase Order",
+			"type": "DocType"
+		}
+	],
+	"title": "NexPort"
+}
