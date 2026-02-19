@@ -1,0 +1,23 @@
+{
+	"add_total_row": 0,
+	"columns": [],
+	"creation": "2026-02-13 00:00:00.000000",
+	"disabled": 0,
+	"doctype": "Report",
+	"filters": [],
+	"is_standard": "Yes",
+	"modified": "2026-02-13 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "NexPort",
+	"name": "Customs Gap Aging",
+	"owner": "Administrator",
+	"ref_doctype": "Customs Gap",
+	"report_name": "Customs Gap Aging",
+	"report_type": "Script Report",
+	"roles": [
+		{"role": "System Manager"},
+		{"role": "NexPort Admin"},
+		{"role": "NexPort Finance"},
+		{"role": "NexPort Procurement"}
+	]
+}

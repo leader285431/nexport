@@ -1,0 +1,38 @@
+[
+ {
+  "desk_access": 1,
+  "doctype": "Role",
+  "is_custom": 1,
+  "name": "NexPort Admin",
+  "role_name": "NexPort Admin"
+ },
+ {
+  "desk_access": 1,
+  "doctype": "Role",
+  "is_custom": 1,
+  "name": "NexPort Finance",
+  "role_name": "NexPort Finance"
+ },
+ {
+  "desk_access": 1,
+  "doctype": "Role",
+  "is_custom": 1,
+  "name": "NexPort Warehouse",
+  "role_name": "NexPort Warehouse"
+ },
+ {
+  "desk_access": 1,
+  "doctype": "Role",
+  "is_custom": 1,
+  "name": "NexPort Sales",
+  "role_name": "NexPort Sales"
+ },
+ {
+  "desk_access": 1,
+  "doctype": "Role",
+  "is_custom": 1,
+  "name": "NexPort Procurement",
+  "role_name": "NexPort Procurement"
+ }
+]
+

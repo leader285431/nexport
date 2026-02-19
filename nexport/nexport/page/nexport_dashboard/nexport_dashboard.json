@@ -1,0 +1,20 @@
+{
+	"creation": "2026-02-13 00:00:00.000000",
+	"doctype": "Page",
+	"icon": "dashboard",
+	"module": "NexPort",
+	"modified": "2026-02-13 00:00:00.000000",
+	"modified_by": "Administrator",
+	"name": "nexport-dashboard",
+	"owner": "Administrator",
+	"page_name": "nexport-dashboard",
+	"roles": [
+		{"role": "System Manager"},
+		{"role": "NexPort Admin"},
+		{"role": "NexPort Finance"},
+		{"role": "NexPort Warehouse"},
+		{"role": "NexPort Procurement"}
+	],
+	"system_page": 0,
+	"title": "NexPort Dashboard"
+}

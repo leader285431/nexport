@@ -1,55 +1,15 @@
-from enum import StrEnum
+ROLE_ADMIN = "NexPort Admin"
+ROLE_FINANCE = "NexPort Finance"
+ROLE_WAREHOUSE = "NexPort Warehouse"
+ROLE_PROCUREMENT = "NexPort Procurement"
+ROLE_SALES = "NexPort Sales"
 
-
-# ──────────────────────────── General ────────────────────────────
 CURRENCIES = ["THB", "USD", "CNY"]
 GAP_DEADLINE_DAYS = 30
 DEFAULT_MARKUP_MULTIPLIER = 1.0
-STOCK_ALERT_THRESHOLD_DAYS = 90
-MAX_EXCHANGE_RATE_DEVIATION = 0.1
+STOCK_ALERT_THRESHOLD_DAYS = 60
+MAX_EXCHANGE_RATE_DEVIATION = 0.05
 
+DEFAULT_FALLBACK_CODE = "GEN"
+SETTINGS_DOCTYPE = "NexPort Settings"
 
-# ──────────────────────────── Status Enums ────────────────────────────
-class QuoteStatus(StrEnum):
-	DRAFT = "Draft"
-	SENT = "Sent"
-	ACCEPTED = "Accepted"
-	REJECTED = "Rejected"
-	EXPIRED = "Expired"
-
-
-class POStatus(StrEnum):
-	DRAFT = "Draft"
-	ORDERED = "Ordered"
-	SHIPPED = "Shipped"
-	RECEIVED = "Received"
-	CLOSED = "Closed"
-
-
-class InvoiceStatus(StrEnum):
-	UNPAID = "Unpaid"
-	PARTIAL = "Partial"
-	PAID = "Paid"
-	OVERDUE = "Overdue"
-
-
-class InvoiceType(StrEnum):
-	AP = "AP"
-	AR = "AR"
-
-
-class EntityType(StrEnum):
-	SUPPLIER = "Supplier"
-	CUSTOMER = "Customer"
-
-
-class PriceHistoryType(StrEnum):
-	PURCHASE = "PURCHASE"
-	REVALUATION = "REVALUATION"
-	DECLARED = "DECLARED"
-	ADJUSTMENT = "ADJUSTMENT"
-
-
-class CostType(StrEnum):
-	PHYSICAL = "PHYSICAL"
-	DECLARED = "DECLARED"
