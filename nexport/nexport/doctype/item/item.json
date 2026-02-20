@@ -6,6 +6,8 @@
 	"engine": "InnoDB",
 	"field_order": [
 		"item_name",
+		"item_name_zh",
+		"item_name_th",
 		"sku",
 		"customs_name",
 		"hs_code",
@@ -25,6 +27,8 @@
 		"column_break_cost",
 		"overhead_pct",
 		"markup_multiplier",
+		"section_suppliers",
+		"supplier_codes",
 		"section_price_history",
 		"price_history"
 	],
@@ -34,6 +38,16 @@
 			"fieldtype": "Data",
 			"label": "Item Name",
 			"reqd": 1
+		},
+		{
+			"fieldname": "item_name_zh",
+			"fieldtype": "Data",
+			"label": "Item Name (Chinese)"
+		},
+		{
+			"fieldname": "item_name_th",
+			"fieldtype": "Data",
+			"label": "Item Name (Thai)"
 		},
 		{
 			"fieldname": "sku",
@@ -56,13 +70,15 @@
 		},
 		{
 			"fieldname": "category",
-			"fieldtype": "Data",
-			"label": "Category"
+			"fieldtype": "Link",
+			"label": "Category",
+			"options": "Item Category"
 		},
 		{
 			"fieldname": "sub_category",
-			"fieldtype": "Data",
-			"label": "Sub Category"
+			"fieldtype": "Link",
+			"label": "Sub Category",
+			"options": "Item Subcategory"
 		},
 		{
 			"fieldname": "column_break_basic",
@@ -147,6 +163,17 @@
 			"default": "1.0",
 			"label": "Markup Multiplier",
 			"permlevel": 1
+		},
+		{
+			"fieldname": "section_suppliers",
+			"fieldtype": "Section Break",
+			"label": "Supplier Codes"
+		},
+		{
+			"fieldname": "supplier_codes",
+			"fieldtype": "Table",
+			"label": "Supplier Codes",
+			"options": "Item Supplier"
 		},
 		{
 			"fieldname": "section_price_history",
