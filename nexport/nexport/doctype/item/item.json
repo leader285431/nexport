@@ -59,8 +59,9 @@
 		},
 		{
 			"fieldname": "customs_name",
-			"fieldtype": "Data",
+			"fieldtype": "Link",
 			"label": "Customs Name",
+			"options": "Customs Name",
 			"reqd": 1,
 			"description": "報關通用名稱"
 		},
