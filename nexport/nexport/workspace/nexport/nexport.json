@@ -1,6 +1,15 @@
 {
-	"charts": [],
-	"content": "[{\"id\":\"nexport_header\",\"type\":\"header\",\"data\":{\"text\":\"<b>NexPort ERP</b>\",\"col\":12}},{\"id\":\"nexport_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"nexport_shortcuts_2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quote\",\"col\":3}},{\"id\":\"nexport_shortcuts_3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"id\":\"nexport_shortcuts_4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Order\",\"col\":3}},{\"id\":\"nexport_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"nexport_card_1\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}},{\"id\":\"nexport_card_2\",\"type\":\"card\",\"data\":{\"card_name\":\"Sales\",\"col\":4}},{\"id\":\"nexport_card_3\",\"type\":\"card\",\"data\":{\"card_name\":\"Procurement & Finance\",\"col\":4}}]",
+	"charts": [
+		{
+			"chart_name": "PO Status Funnel",
+			"col": 6
+		},
+		{
+			"chart_name": "Customs Gap Aging",
+			"col": 6
+		}
+	],
+	"content": "[{\"id\":\"nexport_header\",\"type\":\"header\",\"data\":{\"text\":\"<b>NexPort ERP</b>\",\"col\":12}},{\"id\":\"nexport_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"NexPort Dashboard\",\"col\":3}},{\"id\":\"nexport_shortcuts_2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"nexport_shortcuts_3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Shipment\",\"col\":3}},{\"id\":\"nexport_shortcuts_4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Order\",\"col\":3}},{\"id\":\"nexport_number_card_0a\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Items\",\"col\":3}},{\"id\":\"nexport_number_card_0b\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Purchase Orders\",\"col\":3}},{\"id\":\"nexport_number_card_1\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Inventory Dual-Track Value\",\"col\":3}},{\"id\":\"nexport_number_card_2\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Customs Gaps\",\"col\":3}},{\"id\":\"nexport_number_card_3\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending AP Invoices\",\"col\":4}},{\"id\":\"nexport_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"nexport_card_1\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":3}},{\"id\":\"nexport_card_2\",\"type\":\"card\",\"data\":{\"card_name\":\"Sales\",\"col\":3}},{\"id\":\"nexport_card_3\",\"type\":\"card\",\"data\":{\"card_name\":\"Procurement & Finance\",\"col\":3}},{\"id\":\"nexport_card_4\",\"type\":\"card\",\"data\":{\"card_name\":\"Logistics\",\"col\":3}}]",
 	"creation": "2026-02-10 00:00:00.000000",
 	"custom_blocks": [],
 	"doctype": "Workspace",
@@ -16,8 +25,53 @@
 		{
 			"hidden": 0,
 			"is_query_report": 0,
-			"label": "Masters",
+			"label": "Dashboard",
 			"link_count": 4,
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Card Break"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "NexPort Dashboard",
+			"link_to": "nexport-dashboard",
+			"link_type": "Page",
+			"onboard": 1,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 1,
+			"label": "Inventory Dual-Track",
+			"link_to": "Inventory Dual-Track",
+			"link_type": "Report",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 1,
+			"label": "Customs Gap Aging",
+			"link_to": "Customs Gap Aging",
+			"link_type": "Report",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 1,
+			"label": "Cash Flow 30 Day",
+			"link_to": "Cash Flow 30 Day",
+			"link_type": "Report",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Masters",
+			"link_count": 6,
 			"link_type": "DocType",
 			"onboard": 0,
 			"type": "Card Break"
@@ -38,6 +92,24 @@
 			"link_to": "Item",
 			"link_type": "DocType",
 			"onboard": 1,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Item Category",
+			"link_to": "Item Category",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Item Subcategory",
+			"link_to": "Item Subcategory",
+			"link_type": "DocType",
+			"onboard": 0,
 			"type": "Link"
 		},
 		{
@@ -120,13 +192,56 @@
 			"link_type": "DocType",
 			"onboard": 0,
 			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Logistics",
+			"link_count": 2,
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Card Break"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Shipment",
+			"link_to": "Shipment",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Customs Gap",
+			"link_to": "Customs Gap",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
 		}
 	],
-	"modified": "2026-02-11 00:00:00.000000",
+	"modified": "2026-02-13 00:00:00.000000",
 	"modified_by": "Administrator",
 	"module": "NexPort",
 	"name": "NexPort",
-	"number_cards": [],
+	"number_cards": [
+		{
+			"number_card_name": "Total Items"
+		},
+		{
+			"number_card_name": "Open Purchase Orders"
+		},
+		{
+			"number_card_name": "Inventory Dual-Track Value"
+		},
+		{
+			"number_card_name": "Pending Customs Gaps"
+		},
+		{
+			"number_card_name": "Pending AP Invoices"
+		}
+	],
 	"owner": "Administrator",
 	"parent_page": "",
 	"public": 1,
@@ -135,6 +250,13 @@
 	"roles": [],
 	"sequence_id": 10,
 	"shortcuts": [
+		{
+			"color": "Green",
+			"doc_view": "",
+			"label": "NexPort Dashboard",
+			"link_to": "nexport-dashboard",
+			"type": "Page"
+		},
 		{
 			"color": "",
 			"doc_view": "List",
@@ -152,8 +274,8 @@
 		{
 			"color": "",
 			"doc_view": "List",
-			"label": "Sales Order",
-			"link_to": "Sales Order",
+			"label": "Shipment",
+			"link_to": "Shipment",
 			"type": "DocType"
 		},
 		{
