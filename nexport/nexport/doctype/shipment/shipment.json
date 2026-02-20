@@ -5,8 +5,8 @@
   "document_type": "Document",
   "engine": "InnoDB",
   "is_submittable": 1,
-  "naming_rule": "By fieldname",
-  "autoname": "field:shipment_number",
+  "naming_rule": "Expression (old style)",
+  "autoname": "NP-SH-.YYYY.-.####",
   "fields": [
     {
       "fieldname": "basic_section",
@@ -17,7 +17,7 @@
       "fieldname": "shipment_number",
       "fieldtype": "Data",
       "label": "Shipment Number",
-      "reqd": 1,
+      "read_only": 1,
       "unique": 1,
       "in_list_view": 1,
       "in_standard_filter": 1
