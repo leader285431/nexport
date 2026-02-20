@@ -15,6 +15,7 @@
 		"sub_category",
 		"column_break_basic",
 		"supplier",
+		"unit",
 		"source_currency",
 		"source_price",
 		"weight_kg",
@@ -89,6 +90,12 @@
 			"fieldtype": "Link",
 			"label": "Supplier",
 			"options": "Supplier"
+		},
+		{
+			"fieldname": "unit",
+			"fieldtype": "Data",
+			"label": "Unit",
+			"description": "e.g., PCS, KG, BOX, SET"
 		},
 		{
 			"fieldname": "source_currency",
