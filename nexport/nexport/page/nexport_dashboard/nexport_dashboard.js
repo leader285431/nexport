@@ -417,7 +417,7 @@ class NexportDashboard {
 			todos.push(
 				frappe.call({
 					method: "frappe.client.get_count",
-					args: { doctype: "Shipment", filters: [["status", "in", ["In Transit", "Arrived at Port"]]] },
+					args: { doctype: "Shipment", filters: [["status", "in", ["In Transit", "Arrived"]]] },
 					callback: (r) => {
 						if ((r.message || 0) > 0) {
 							this._appendTodo(todoRows, "medium",
