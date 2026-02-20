@@ -1,147 +1,211 @@
 {
-	"actions": [],
-	"autoname": "NP-INV-.YYYY.-.####",
-	"creation": "2026-02-10 00:00:00.000000",
-	"doctype": "DocType",
-	"engine": "InnoDB",
-	"is_submittable": 1,
-	"field_order": [
-		"invoice_date",
-		"type",
-		"entity_type",
-		"entity",
-		"status",
-		"column_break_1",
-		"currency",
-		"total_amount",
-		"actual_exchange_rate",
-		"payment_date",
-		"related_order_type",
-		"related_order",
-		"amended_from"
-	],
-	"fields": [
-		{
-			"fieldname": "invoice_date",
-			"fieldtype": "Date",
-			"label": "Invoice Date"
-		},
-		{
-			"fieldname": "type",
-			"fieldtype": "Select",
-			"label": "Type",
-			"options": "AP\nAR",
-			"reqd": 1
-		},
-		{
-			"fieldname": "entity_type",
-			"fieldtype": "Link",
-			"label": "Entity Type",
-			"options": "DocType",
-			"hidden": 1
-		},
-		{
-			"fieldname": "entity",
-			"fieldtype": "Dynamic Link",
-			"label": "Entity",
-			"options": "entity_type",
-			"reqd": 1
-		},
-		{
-			"default": "Draft",
-			"fieldname": "status",
-			"fieldtype": "Select",
-			"label": "Status",
-			"options": "Draft\nUnpaid\nPartial\nPaid\nOverdue",
-			"reqd": 1
-		},
-		{
-			"fieldname": "column_break_1",
-			"fieldtype": "Column Break"
-		},
-		{
-			"fieldname": "currency",
-			"fieldtype": "Link",
-			"label": "Currency",
-			"options": "Currency"
-		},
-		{
-			"fieldname": "total_amount",
-			"fieldtype": "Currency",
-			"label": "Total Amount"
-		},
-		{
-			"fieldname": "actual_exchange_rate",
-			"fieldtype": "Float",
-			"label": "Actual Exchange Rate",
-			"precision": "6",
-			"description": "Filled on payment"
-		},
-		{
-			"fieldname": "payment_date",
-			"fieldtype": "Date",
-			"label": "Payment Date"
-		},
-		{
-			"fieldname": "related_order_type",
-			"fieldtype": "Link",
-			"label": "Related Order Type",
-			"options": "DocType",
-			"hidden": 1
-		},
-		{
-			"fieldname": "related_order",
-			"fieldtype": "Dynamic Link",
-			"label": "Related Order",
-			"options": "related_order_type"
-		},
-		{
-			"fieldname": "amended_from",
-			"fieldtype": "Link",
-			"label": "Amended From",
-			"no_copy": 1,
-			"options": "Invoice",
-			"print_hide": 1,
-			"read_only": 1
-		}
-	],
-	"index_web_pages_for_search": 0,
-	"links": [],
-	"modified": "2026-02-10 00:00:00.000000",
-	"modified_by": "Administrator",
-	"module": "NexPort",
-	"name": "Invoice",
-	"naming_rule": "Expression (old style)",
-	"owner": "Administrator",
-	"permissions": [
-		{
-			"create": 1,
-			"delete": 1,
-			"email": 1,
-			"export": 1,
-			"print": 1,
-			"read": 1,
-			"report": 1,
-			"role": "NexPort Admin",
-			"share": 1,
-			"submit": 1,
-			"cancel": 1,
-			"write": 1
-		},
-		{
-			"create": 1,
-			"read": 1,
-			"submit": 1,
-			"cancel": 1,
-			"write": 1,
-			"role": "NexPort Finance"
-		},
-		{
-			"read": 1,
-			"role": "NexPort Sales"
-		}
-	],
-	"sort_field": "modified",
-	"sort_order": "DESC",
-	"track_changes": 1
+ "actions": [],
+ "autoname": "field:invoice_number",
+ "creation": "2026-02-14 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "invoice_number",
+  "invoice_date",
+  "type",
+  "status",
+  "column_break_main",
+  "entity_type",
+  "entity",
+  "currency",
+  "total_amount",
+  "actual_exchange_rate",
+  "payment_date",
+  "is_rate_finalized",
+  "revaluation_error_ref",
+  "related_order_type",
+  "related_order",
+  "payment_section",
+  "payment_terms",
+  "payment_schedule"
+ ],
+ "fields": [
+  {
+   "fieldname": "invoice_number",
+   "fieldtype": "Data",
+   "label": "Invoice Number",
+   "read_only": 1,
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "invoice_date",
+   "fieldtype": "Date",
+   "label": "Invoice Date",
+   "default": "Today",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "AP (Accounts Payable)\nAR (Accounts Receivable)\nAP\nAR",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nUnpaid\nPartial\nPaid\nOverdue",
+   "default": "Draft",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "column_break_main",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "entity_type",
+   "fieldtype": "Link",
+   "label": "Entity Type",
+   "options": "DocType",
+   "hidden": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "entity",
+   "fieldtype": "Dynamic Link",
+   "label": "Entity",
+   "options": "entity_type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "default": "THB",
+   "reqd": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "options": "currency",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "actual_exchange_rate",
+   "fieldtype": "Float",
+   "label": "Actual Exchange Rate",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "payment_date",
+   "fieldtype": "Date",
+   "label": "Payment Date"
+  },
+  {
+   "fieldname": "is_rate_finalized",
+   "fieldtype": "Check",
+   "label": "Is Rate Finalized",
+   "default": 0,
+   "hidden": 1,
+   "read_only": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "revaluation_error_ref",
+   "fieldtype": "Data",
+   "label": "Revaluation Error Ref",
+   "hidden": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "related_order_type",
+   "fieldtype": "Link",
+   "label": "Related Order Type",
+   "options": "DocType",
+   "hidden": 1
+  },
+  {
+   "fieldname": "related_order",
+   "fieldtype": "Dynamic Link",
+   "label": "Related Order",
+   "options": "related_order_type"
+  },
+  {
+   "fieldname": "payment_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Schedule"
+  },
+  {
+   "fieldname": "payment_terms",
+   "fieldtype": "Select",
+   "label": "Payment Terms",
+   "options": "\nNet 30\nNet 60\nNet 90\n3 Installments\n6 Installments\nImmediate"
+  },
+  {
+   "fieldname": "payment_schedule",
+   "fieldtype": "Table",
+   "label": "Payment Schedule",
+   "options": "NexPort Payment Plan"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-02-14 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "NexPort",
+ "name": "Invoice",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "NexPort Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "write": 1,
+   "role": "NexPort Admin",
+   "permlevel": 1
+  },
+  {
+   "read": 1,
+   "role": "NexPort Finance"
+  },
+  {
+   "read": 1,
+   "write": 1,
+   "role": "NexPort Finance",
+   "permlevel": 1
+  },
+  {
+   "read": 1,
+   "role": "NexPort Sales"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
 }

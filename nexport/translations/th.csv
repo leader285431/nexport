@@ -1,0 +1,297 @@
+Item,รายการสินค้า
+Purchase Order,ใบสั่งซื้อ
+Invoice,ใบแจ้งหนี้
+Shipment,การจัดส่ง
+Customs Gap,ส่วนต่างศุลกากร
+Sales Order,ใบสั่งขาย
+Delivery Note,ใบส่งสินค้า
+Quote,ใบเสนอราคา
+CRM Activity,กิจกรรม CRM
+NexPort Settings,การตั้งค่า NexPort
+Customer,ลูกค้า
+Supplier,ซัพพลายเออร์
+Price History,ประวัติราคา
+Customs Name,ชื่อศุลกากร
+Shipment Item,รายการสินค้าในการจัดส่ง
+Shipment Status History,ประวัติสถานะการจัดส่ง
+Item Name,ชื่อสินค้า
+Item Code,รหัสสินค้า
+SKU,หน่วยเก็บสินค้า
+Description,รายละเอียด
+Category,หมวดหมู่
+Subcategory,หมวดหมู่ย่อย
+Unit of Measure,หน่วยวัด
+Stock Physical,สต็อกจริง
+Stock Declared,สต็อกที่ประกาศ
+Cost Landed,ต้นทุนนำเข้า
+Cost Declared,ต้นทุนที่ประกาศ
+Source Price,ราคาต้นทาง
+Price History,ประวัติราคา
+Barcode,บาร์โค้ด
+Is Active,ใช้งานอยู่
+Currency,สกุลเงิน
+Invoice Date,วันที่ใบแจ้งหนี้
+Due Date,วันครบกำหนด
+Supplier,ซัพพลายเออร์
+Customer,ลูกค้า
+Total Amount,จำนวนเงินรวม
+Exchange Rate,อัตราแลกเปลี่ยน
+Payment Terms,เงื่อนไขการชำระเงิน
+Payment Schedule,ตารางการชำระเงิน
+Status,สถานะ
+Reference Number,หมายเลขอ้างอิง
+Notes,หมายเหตุ
+Attachment,ไฟล์แนบ
+Shipment Date,วันที่จัดส่ง
+Arrival Date,วันที่มาถึง
+Carrier,ผู้ขนส่ง
+Tracking Number,หมายเลขติดตาม
+Freight Cost,ค่าขนส่ง
+Duty Cost,ค่าอากร
+Local Cost,ค่าใช้จ่ายท้องถิ่น
+Insurance Cost,ค่าประกัน
+Total Cost,ค่าใช้จ่ายรวม
+Shipment Items,รายการสินค้าในการจัดส่ง
+General Name,ชื่อทั่วไป
+Gap Quantity,จำนวนส่วนต่าง
+Resolved Quantity,จำนวนที่แก้ไขแล้ว
+Resolution Reference,อ้างอิงการแก้ไข
+Deadline,กำหนดเวลา
+Unit Price,ราคาต่อหน่วย
+Quantity,จำนวน
+Subtotal,ยอดรวมย่อย
+Discount,ส่วนลด
+Delivery Date,วันที่ส่งมอบ
+Sales Rep,ตัวแทนขาย
+Related Entity,หน่วยงานที่เกี่ยวข้อง
+Entity Type,ประเภทหน่วยงาน
+Type,ประเภท
+Direction,ทิศทาง
+Summary,สรุป
+Next Action Date,วันที่ดำเนินการถัดไป
+Assigned To,มอบหมายให้
+Draft,ร่าง
+Confirmed,ยืนยันแล้ว
+Submitted,ส่งแล้ว
+Cancelled,ยกเลิกแล้ว
+Pending,รอดำเนินการ
+Paid,ชำระแล้ว
+Overdue,เกินกำหนด
+Partial,ชำระบางส่วน
+Resolved,แก้ไขแล้ว
+In Transit,อยู่ระหว่างขนส่ง
+Arrived,มาถึงแล้ว
+Customs Clearing,กำลังผ่านพิธีศุลกากร
+Released,ปล่อยแล้ว
+Delivered,ส่งมอบแล้ว
+Active,ใช้งาน
+Inactive,ไม่ใช้งาน
+Call,โทรศัพท์
+Email,อีเมล
+Visit,การเยี่ยมชม
+Meeting,การประชุม
+Inbound,ขาเข้า
+Outbound,ขาออก
+Net 30,Net 30 วัน
+Net 60,Net 60 วัน
+Net 90,Net 90 วัน
+Immediate,ทันที
+Save,บันทึก
+Submit,ส่ง
+Cancel,ยกเลิก
+Approve,อนุมัติ
+Reject,ปฏิเสธ
+Print,พิมพ์
+Export,ส่งออก
+Search,ค้นหา
+Filter,กรอง
+Create,สร้าง
+Edit,แก้ไข
+Delete,ลบ
+Back,กลับ
+Close,ปิด
+Confirm,ยืนยัน
+Monthly AP Summary,สรุปเจ้าหนี้รายเดือน
+Annual Payment Plan,แผนการชำระเงินประจำปี
+Cost Variance Report,รายงานความแปรปรวนต้นทุน
+Monthly Inventory Report,รายงานสินค้าคงคลังรายเดือน
+Customs Gap Report,รายงานส่วนต่างศุลกากร
+Please try again,กรุณาลองใหม่อีกครั้ง
+Insufficient stock,สต็อกไม่เพียงพอ
+Invalid quantity,จำนวนไม่ถูกต้อง
+Required field missing,ไม่ได้กรอกข้อมูลในช่องที่จำเป็น
+Duplicate entry,ข้อมูลซ้ำ
+Access denied,ไม่มีสิทธิ์เข้าถึง
+Markup Multiplier,ตัวคูณกำไร
+Default Currency,สกุลเงินเริ่มต้น
+Default Exchange Rate,อัตราแลกเปลี่ยนเริ่มต้น
+Gap Deadline Days,จำนวนวันกำหนดส่วนต่าง
+Enable Email Reminders,เปิดใช้งานการแจ้งเตือนทางอีเมล
+Reminder Days,จำนวนวันแจ้งเตือน
+New Item,รายการสินค้าใหม่
+New Purchase Order,ใบสั่งซื้อใหม่
+New Invoice,ใบแจ้งหนี้ใหม่
+New Shipment,การจัดส่งใหม่
+New Customer,ลูกค้าใหม่
+New Supplier,ซัพพลายเออร์ใหม่
+New Quote,ใบเสนอราคาใหม่
+New Sales Order,ใบสั่งขายใหม่
+New Delivery Note,ใบส่งสินค้าใหม่
+Add Item,เพิ่มรายการสินค้า
+Remove Item,นำรายการสินค้าออก
+Update Status,อัปเดตสถานะ
+View Details,ดูรายละเอียด
+Download,ดาวน์โหลด
+Upload,อัปโหลด
+Import,นำเข้า
+Refresh,รีเฟรช
+Reset,รีเซ็ต
+Apply,ใช้งาน
+Total,รวม
+Tax,ภาษี
+Grand Total,ยอดรวมทั้งหมด
+Balance,ยอดคงเหลือ
+Paid Amount,จำนวนที่ชำระแล้ว
+Outstanding Amount,จำนวนที่ค้างชำระ
+Shipment Number,หมายเลขการจัดส่ง
+Purchase Order Number,หมายเลขใบสั่งซื้อ
+Invoice Number,หมายเลขใบแจ้งหนี้
+Sales Order Number,หมายเลขใบสั่งขาย
+Quote Number,หมายเลขใบเสนอราคา
+Delivery Note Number,หมายเลขใบส่งสินค้า
+Date,วันที่
+Time,เวลา
+Created By,สร้างโดย
+Modified By,แก้ไขโดย
+Owner,เจ้าของ
+Company,บริษัท
+Address,ที่อยู่
+Phone,โทรศัพท์
+Mobile,โทรศัพท์มือถือ
+Fax,โทรสาร
+Website,เว็บไซต์
+Country,ประเทศ
+City,เมือง
+State,จังหวัด/รัฐ
+Postal Code,รหัสไปรษณีย์
+Contact Person,ผู้ติดต่อ
+Contact Email,อีเมลติดต่อ
+Payment Method,วิธีการชำระเงิน
+Bank Account,บัญชีธนาคาร
+Bank Name,ชื่อธนาคาร
+Account Number,หมายเลขบัญชี
+SWIFT Code,รหัส SWIFT
+Item Description,รายละเอียดสินค้า
+Item Category,หมวดหมู่สินค้า
+Item Subcategory,หมวดหมู่ย่อยสินค้า
+Stock Level,ระดับสต็อก
+Reorder Point,จุดสั่งซื้อซ้ำ
+Maximum Stock,สต็อกสูงสุด
+Minimum Stock,สต็อกต่ำสุด
+Weight,น้ำหนัก
+Volume,ปริมาตร
+Dimensions,ขนาด
+Origin Country,ประเทศต้นทาง
+HS Code,รหัส HS
+Tariff Rate,อัตราภาษีศุลกากร
+Customs Value,มูลค่าศุลกากร
+Declared Value,มูลค่าที่ประกาศ
+Insurance Value,มูลค่าประกัน
+Freight Value,มูลค่าค่าขนส่ง
+CIF Value,มูลค่า CIF
+FOB Value,มูลค่า FOB
+Port of Loading,ท่าเรือต้นทาง
+Port of Discharge,ท่าเรือปลายทาง
+Estimated Arrival,วันมาถึงโดยประมาณ
+Actual Arrival,วันมาถึงจริง
+Clearance Date,วันผ่านพิธีศุลกากร
+Release Date,วันปล่อยสินค้า
+Delivery Address,ที่อยู่สำหรับส่งสินค้า
+Billing Address,ที่อยู่สำหรับวางบิล
+Shipping Method,วิธีการจัดส่ง
+Incoterms,อินโคเทิร์ม
+Letter of Credit,เลตเตอร์ออฟเครดิต
+Bill of Lading,ใบตราส่ง
+Packing List,รายการบรรจุหีบห่อ
+Commercial Invoice,ใบกำกับสินค้าเชิงพาณิชย์
+Certificate of Origin,ใบรับรองแหล่งกำเนิดสินค้า
+AP (Accounts Payable),เจ้าหนี้ (AP)
+AR (Accounts Receivable),ลูกหนี้ (AR)
+Accounts Payable,เจ้าหนี้
+Accounts Receivable,ลูกหนี้
+Payment Date,วันที่ชำระเงิน
+Receipt Date,วันที่รับเงิน
+Invoice Status,สถานะใบแจ้งหนี้
+Payment Status,สถานะการชำระเงิน
+Shipment Status,สถานะการจัดส่ง
+Gap Status,สถานะส่วนต่าง
+Activity Type,ประเภทกิจกรรม
+Activity Date,วันที่กิจกรรม
+Activity Notes,หมายเหตุกิจกรรม
+Follow Up,ติดตามผล
+Priority,ความสำคัญ
+High,สูง
+Medium,กลาง
+Low,ต่ำ
+Urgent,ด่วน
+Normal,ปกติ
+Internal Notes,หมายเหตุภายใน
+External Notes,หมายเหตุภายนอก
+Approved By,อนุมัติโดย
+Rejected By,ปฏิเสธโดย
+Reason,เหตุผล
+Remarks,ข้อสังเกต
+Attachment Name,ชื่อไฟล์แนบ
+File Size,ขนาดไฟล์
+File Type,ประเภทไฟล์
+Upload Date,วันที่อัปโหลด
+Uploaded By,อัปโหลดโดย
+Version,เวอร์ชัน
+Revision,การแก้ไข
+History,ประวัติ
+Log,บันทึก
+Audit Trail,เส้นทางการตรวจสอบ
+Report Date,วันที่รายงาน
+Report Period,ช่วงเวลารายงาน
+From Date,ตั้งแต่วันที่
+To Date,ถึงวันที่
+Fiscal Year,ปีงบประมาณ
+Quarter,ไตรมาส
+Month,เดือน
+Week,สัปดาห์
+Day,วัน
+Year,ปี
+Compare,เปรียบเทียบ
+Variance,ความแปรปรวน
+Percentage,เปอร์เซ็นต์
+Amount,จำนวนเงิน
+Count,จำนวน
+Average,ค่าเฉลี่ย
+Sum,ผลรวม
+Minimum,ค่าต่ำสุด
+Maximum,ค่าสูงสุด
+Opening Balance,ยอดยกมา
+Closing Balance,ยอดคงเหลือ
+Debit,เดบิต
+Credit,เครดิต
+Journal Entry,รายการบันทึกบัญชี
+Cost Center,ศูนย์ต้นทุน
+Project,โครงการ
+Department,แผนก
+Employee,พนักงาน
+User,ผู้ใช้งาน
+Role,บทบาท
+Permission,สิทธิ์
+Settings,การตั้งค่า
+Configuration,การกำหนดค่า
+System,ระบบ
+Profile,โปรไฟล์
+Password,รหัสผ่าน
+Login,เข้าสู่ระบบ
+Logout,ออกจากระบบ
+Dashboard,แดชบอร์ด
+Reports,รายงาน
+Analytics,การวิเคราะห์
+Help,ช่วยเหลือ
+About,เกี่ยวกับ
+Version Info,ข้อมูลเวอร์ชัน

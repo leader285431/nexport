@@ -1,0 +1,298 @@
+Item,品項
+Purchase Order,採購單
+Invoice,發票
+Shipment,貨運
+Customs Gap,報關差異
+Sales Order,銷售單
+Delivery Note,出貨單
+Quote,報價單
+CRM Activity,CRM 活動
+NexPort Settings,NexPort 設定
+Customer,客戶
+Supplier,供應商
+Price History,價格歷史
+Customs Name,報關名稱
+Shipment Item,貨運品項
+Shipment Status History,貨運狀態歷史
+Item Name,品項名稱
+Item Code,品項代碼
+SKU,庫存單位
+Description,描述
+Category,類別
+Subcategory,子類別
+Unit of Measure,計量單位
+Stock Physical,實體庫存
+Stock Declared,申報庫存
+Cost Landed,到岸成本
+Cost Declared,申報成本
+Source Price,來源價格
+Price History,價格歷史
+Barcode,條碼
+Is Active,啟用中
+Currency,幣別
+Invoice Date,發票日期
+Due Date,到期日
+Supplier,供應商
+Customer,客戶
+Total Amount,總金額
+Exchange Rate,匯率
+Payment Terms,付款條件
+Payment Schedule,付款時程
+Status,狀態
+Reference Number,參考編號
+Notes,備註
+Attachment,附件
+Shipment Date,出貨日期
+Arrival Date,抵達日期
+Carrier,承運商
+Tracking Number,追蹤號碼
+Freight Cost,運費
+Duty Cost,關稅
+Local Cost,本地費用
+Insurance Cost,保險費用
+Total Cost,總費用
+Shipment Items,貨運品項
+General Name,通用名稱
+Gap Quantity,差異數量
+Resolved Quantity,已解決數量
+Resolution Reference,解決參考
+Deadline,截止日期
+Unit Price,單價
+Quantity,數量
+Subtotal,小計
+Discount,折扣
+Delivery Date,交貨日期
+Sales Rep,業務代表
+Related Entity,相關實體
+Entity Type,實體類型
+Type,類型
+Direction,方向
+Summary,摘要
+Next Action Date,下次行動日期
+Assigned To,指派給
+Draft,草稿
+Confirmed,已確認
+Submitted,已提交
+Cancelled,已取消
+Pending,待處理
+Paid,已付款
+Overdue,逾期
+Partial,部分付款
+Resolved,已解決
+In Transit,運送中
+Arrived,已抵達
+Customs Clearing,清關中
+Released,已放行
+Delivered,已送達
+Active,啟用
+Inactive,停用
+Call,電話
+Email,電子郵件
+Visit,拜訪
+Meeting,會議
+Inbound,來電
+Outbound,去電
+Net 30,Net 30 天
+Net 60,Net 60 天
+Net 90,Net 90 天
+Immediate,立即
+Save,儲存
+Submit,提交
+Cancel,取消
+Approve,核准
+Reject,拒絕
+Print,列印
+Export,匯出
+Search,搜尋
+Filter,篩選
+Create,新增
+Edit,編輯
+Delete,刪除
+Back,返回
+Close,關閉
+Confirm,確認
+Monthly AP Summary,每月應付帳款摘要
+Annual Payment Plan,年度付款計畫
+Cost Variance Report,成本差異報表
+Monthly Inventory Report,每月庫存報表
+Customs Gap Report,報關差異報表
+Please try again,請再試一次
+Insufficient stock,庫存不足
+Invalid quantity,數量無效
+Required field missing,必填欄位缺失
+Duplicate entry,重複資料
+Access denied,存取被拒
+Markup Multiplier,加成倍數
+Default Currency,預設幣別
+Default Exchange Rate,預設匯率
+Gap Deadline Days,差異截止天數
+Enable Email Reminders,啟用電子郵件提醒
+Reminder Days,提醒天數
+New Item,新品項
+New Purchase Order,新採購單
+New Invoice,新發票
+New Shipment,新貨運
+New Customer,新客戶
+New Supplier,新供應商
+New Quote,新報價單
+New Sales Order,新銷售單
+New Delivery Note,新出貨單
+Add Item,新增品項
+Remove Item,移除品項
+Update Status,更新狀態
+View Details,檢視詳情
+Download,下載
+Upload,上傳
+Import,匯入
+Refresh,重新整理
+Reset,重設
+Apply,套用
+Total,總計
+Subtotal,小計
+Tax,稅金
+Grand Total,合計
+Balance,餘額
+Paid Amount,已付金額
+Outstanding Amount,未付金額
+Shipment Number,貨運號碼
+Purchase Order Number,採購單號碼
+Invoice Number,發票號碼
+Sales Order Number,銷售單號碼
+Quote Number,報價單號碼
+Delivery Note Number,出貨單號碼
+Date,日期
+Time,時間
+Created By,建立者
+Modified By,修改者
+Owner,擁有者
+Company,公司
+Address,地址
+Phone,電話
+Mobile,手機
+Fax,傳真
+Website,網站
+Country,國家
+City,城市
+State,州/省
+Postal Code,郵遞區號
+Contact Person,聯絡人
+Contact Email,聯絡電子郵件
+Payment Method,付款方式
+Bank Account,銀行帳戶
+Bank Name,銀行名稱
+Account Number,帳戶號碼
+SWIFT Code,SWIFT 代碼
+Item Description,品項描述
+Item Category,品項類別
+Item Subcategory,品項子類別
+Stock Level,庫存水準
+Reorder Point,補貨點
+Maximum Stock,最大庫存
+Minimum Stock,最小庫存
+Weight,重量
+Volume,體積
+Dimensions,尺寸
+Origin Country,原產國
+HS Code,HS 稅號
+Tariff Rate,關稅率
+Customs Value,報關價值
+Declared Value,申報價值
+Insurance Value,保險價值
+Freight Value,運費價值
+CIF Value,CIF 價值
+FOB Value,FOB 價值
+Port of Loading,裝載港
+Port of Discharge,卸貨港
+Estimated Arrival,預計抵達
+Actual Arrival,實際抵達
+Clearance Date,清關日期
+Release Date,放行日期
+Delivery Address,送貨地址
+Billing Address,帳單地址
+Shipping Method,運送方式
+Incoterms,國際貿易條規
+Letter of Credit,信用狀
+Bill of Lading,提單
+Packing List,裝箱單
+Commercial Invoice,商業發票
+Certificate of Origin,原產地證書
+AP (Accounts Payable),應付帳款 (AP)
+AR (Accounts Receivable),應收帳款 (AR)
+Accounts Payable,應付帳款
+Accounts Receivable,應收帳款
+Payment Date,付款日期
+Receipt Date,收款日期
+Invoice Status,發票狀態
+Payment Status,付款狀態
+Shipment Status,貨運狀態
+Gap Status,差異狀態
+Activity Type,活動類型
+Activity Date,活動日期
+Activity Notes,活動備註
+Follow Up,後續追蹤
+Priority,優先順序
+High,高
+Medium,中
+Low,低
+Urgent,緊急
+Normal,一般
+Internal Notes,內部備註
+External Notes,外部備註
+Approved By,核准者
+Rejected By,拒絕者
+Reason,原因
+Remarks,備註
+Attachment Name,附件名稱
+File Size,檔案大小
+File Type,檔案類型
+Upload Date,上傳日期
+Uploaded By,上傳者
+Version,版本
+Revision,修訂
+History,歷史
+Log,日誌
+Audit Trail,稽核軌跡
+Report Date,報表日期
+Report Period,報表期間
+From Date,起始日期
+To Date,結束日期
+Fiscal Year,財政年度
+Quarter,季度
+Month,月份
+Week,週
+Day,日
+Year,年
+Compare,比較
+Variance,差異
+Percentage,百分比
+Amount,金額
+Count,數量
+Average,平均
+Sum,合計
+Minimum,最小值
+Maximum,最大值
+Opening Balance,期初餘額
+Closing Balance,期末餘額
+Debit,借方
+Credit,貸方
+Journal Entry,日記帳
+Cost Center,成本中心
+Project,專案
+Department,部門
+Employee,員工
+User,使用者
+Role,角色
+Permission,權限
+Settings,設定
+Configuration,配置
+System,系統
+Profile,個人資料
+Password,密碼
+Login,登入
+Logout,登出
+Dashboard,儀表板
+Reports,報表
+Analytics,分析
+Help,說明
+About,關於
+Version Info,版本資訊

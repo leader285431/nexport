@@ -1,0 +1,418 @@
+{
+  "name": "Shipment",
+  "module": "NexPort",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "is_submittable": 1,
+  "naming_rule": "By fieldname",
+  "autoname": "field:shipment_number",
+  "fields": [
+    {
+      "fieldname": "basic_section",
+      "fieldtype": "Section Break",
+      "label": "Basic Information"
+    },
+    {
+      "fieldname": "shipment_number",
+      "fieldtype": "Data",
+      "label": "Shipment Number",
+      "reqd": 1,
+      "unique": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "batch_number",
+      "fieldtype": "Data",
+      "label": "Batch Number"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Draft\nConfirmed\nIn Transit\nArrived\nCustoms Clearing\nReleased\nDelivered",
+      "default": "Draft",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_basic",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "is_formal",
+      "fieldtype": "Check",
+      "label": "Is Formal",
+      "default": 0
+    },
+    {
+      "fieldname": "is_consolidated",
+      "fieldtype": "Check",
+      "label": "Is Consolidated",
+      "default": 0
+    },
+    {
+      "fieldname": "amended_from",
+      "fieldtype": "Link",
+      "label": "Amended From",
+      "options": "Shipment",
+      "read_only": 1,
+      "no_copy": 1,
+      "print_hide": 1
+    },
+    {
+      "fieldname": "logistics_section",
+      "fieldtype": "Section Break",
+      "label": "Logistics"
+    },
+    {
+      "fieldname": "logistics_provider",
+      "fieldtype": "Data",
+      "label": "Logistics Provider"
+    },
+    {
+      "fieldname": "shipping_method",
+      "fieldtype": "Select",
+      "label": "Shipping Method",
+      "options": "\nAir\nSea\nLand\nExpress",
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "tracking_number",
+      "fieldtype": "Data",
+      "label": "Tracking Number"
+    },
+    {
+      "fieldname": "column_break_logistics",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "tracking_url",
+      "fieldtype": "Data",
+      "label": "Tracking URL",
+      "options": "URL"
+    },
+    {
+      "fieldname": "container_number",
+      "fieldtype": "Data",
+      "label": "Container Number"
+    },
+    {
+      "fieldname": "flight_number",
+      "fieldtype": "Data",
+      "label": "Flight Number"
+    },
+    {
+      "fieldname": "time_tracking_section",
+      "fieldtype": "Section Break",
+      "label": "Time Tracking"
+    },
+    {
+      "fieldname": "estimated_departure_date",
+      "fieldtype": "Date",
+      "label": "Estimated Departure Date"
+    },
+    {
+      "fieldname": "actual_departure_date",
+      "fieldtype": "Date",
+      "label": "Actual Departure Date"
+    },
+    {
+      "fieldname": "estimated_arrival_date",
+      "fieldtype": "Date",
+      "label": "Estimated Arrival Date"
+    },
+    {
+      "fieldname": "actual_arrival_date",
+      "fieldtype": "Date",
+      "label": "Actual Arrival Date"
+    },
+    {
+      "fieldname": "column_break_time",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "customs_clearance_date",
+      "fieldtype": "Date",
+      "label": "Customs Clearance Date"
+    },
+    {
+      "fieldname": "delivery_date",
+      "fieldtype": "Date",
+      "label": "Delivery Date"
+    },
+    {
+      "fieldname": "days_in_transit",
+      "fieldtype": "Int",
+      "label": "Days in Transit",
+      "read_only": 1
+    },
+    {
+      "fieldname": "days_delayed",
+      "fieldtype": "Int",
+      "label": "Days Delayed",
+      "read_only": 1
+    },
+    {
+      "fieldname": "customs_section",
+      "fieldtype": "Section Break",
+      "label": "Customs"
+    },
+    {
+      "fieldname": "customs_exchange_rate",
+      "fieldtype": "Currency",
+      "label": "Customs Exchange Rate",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "is_customs_rate_temporary",
+      "fieldtype": "Check",
+      "label": "Is Customs Rate Temporary",
+      "default": 0
+    },
+    {
+      "fieldname": "column_break_customs",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "customs_declaration_number",
+      "fieldtype": "Data",
+      "label": "Customs Declaration Number"
+    },
+    {
+      "fieldname": "customs_broker",
+      "fieldtype": "Data",
+      "label": "Customs Broker"
+    },
+    {
+      "fieldname": "costs_section",
+      "fieldtype": "Section Break",
+      "label": "Costs"
+    },
+    {
+      "fieldname": "freight_currency",
+      "fieldtype": "Link",
+      "label": "Freight Currency",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "freight_cost",
+      "fieldtype": "Currency",
+      "label": "Freight Cost",
+      "options": "freight_currency",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "freight_actual_rate",
+      "fieldtype": "Float",
+      "label": "Freight Actual Rate",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "column_break_costs_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "duty_currency",
+      "fieldtype": "Link",
+      "label": "Duty Currency",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "duty_cost",
+      "fieldtype": "Currency",
+      "label": "Duty Cost",
+      "options": "duty_currency",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "duty_actual_rate",
+      "fieldtype": "Float",
+      "label": "Duty Actual Rate",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "column_break_costs_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "local_currency",
+      "fieldtype": "Link",
+      "label": "Local Currency",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "local_cost",
+      "fieldtype": "Currency",
+      "label": "Local Cost",
+      "options": "local_currency",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "other_costs_section",
+      "fieldtype": "Section Break",
+      "label": "Other Costs"
+    },
+    {
+      "fieldname": "customs_fee",
+      "fieldtype": "Currency",
+      "label": "Customs Fee"
+    },
+    {
+      "fieldname": "storage_fee",
+      "fieldtype": "Currency",
+      "label": "Storage Fee"
+    },
+    {
+      "fieldname": "handling_fee",
+      "fieldtype": "Currency",
+      "label": "Handling Fee"
+    },
+    {
+      "fieldname": "column_break_other_costs",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "insurance_cost",
+      "fieldtype": "Currency",
+      "label": "Insurance Cost",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "other_fees",
+      "fieldtype": "Currency",
+      "label": "Other Fees"
+    },
+    {
+      "fieldname": "total_cost_thb",
+      "fieldtype": "Currency",
+      "label": "Total Cost (THB)",
+      "read_only": 1,
+      "bold": 1,
+      "permlevel": 1
+    },
+    {
+      "fieldname": "ports_section",
+      "fieldtype": "Section Break",
+      "label": "Ports & Notes"
+    },
+    {
+      "fieldname": "origin_port",
+      "fieldtype": "Data",
+      "label": "Origin Port"
+    },
+    {
+      "fieldname": "destination_port",
+      "fieldtype": "Data",
+      "label": "Destination Port"
+    },
+    {
+      "fieldname": "column_break_ports",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "attachment",
+      "fieldtype": "Attach",
+      "label": "Attachment"
+    },
+    {
+      "fieldname": "receipt_section",
+      "fieldtype": "Section Break",
+      "label": "Receipt",
+      "hidden": 1
+    },
+    {
+      "fieldname": "receipt_processed",
+      "fieldtype": "Check",
+      "label": "Receipt Processed",
+      "hidden": 1,
+      "read_only": 1,
+      "default": 0
+    },
+    {
+      "fieldname": "items_section",
+      "fieldtype": "Section Break",
+      "label": "Items"
+    },
+    {
+      "fieldname": "items",
+      "fieldtype": "Table",
+      "label": "Items",
+      "options": "Shipment Item",
+      "reqd": 1
+    },
+    {
+      "fieldname": "status_history_section",
+      "fieldtype": "Section Break",
+      "label": "Status History",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "status_history",
+      "fieldtype": "Table",
+      "label": "Status History",
+      "options": "Shipment Status History"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1
+    },
+    {
+      "role": "NexPort Admin",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1
+    },
+    {
+      "role": "NexPort Admin",
+      "read": 1,
+      "write": 1,
+      "permlevel": 1
+    },
+    {
+      "role": "NexPort Finance",
+      "read": 1
+    },
+    {
+      "role": "NexPort Finance",
+      "read": 1,
+      "write": 1,
+      "permlevel": 1
+    },
+    {
+      "role": "NexPort Warehouse",
+      "read": 1,
+      "write": 1,
+      "create": 1
+    },
+    {
+      "role": "NexPort Procurement",
+      "read": 1,
+      "write": 1,
+      "create": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1
+}

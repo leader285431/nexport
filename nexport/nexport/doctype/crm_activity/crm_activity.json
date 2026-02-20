@@ -1,0 +1,32 @@
+{
+  "name": "CRM Activity",
+  "module": "NexPort",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "engine": "InnoDB",
+  "naming_rule": "By \"Naming Series\" field",
+  "autoname": "naming_series:",
+  "fields": [
+    {"fieldname": "naming_series", "fieldtype": "Select", "label": "Naming Series", "options": "NP-CRM-.YYYY.-.####", "default": "NP-CRM-.YYYY.-.####", "reqd": 1, "hidden": 1},
+    {"fieldname": "related_entity_type", "fieldtype": "Link", "label": "Entity Type", "options": "DocType", "hidden": 1, "reqd": 1, "in_list_view": 0},
+    {"fieldname": "related_entity", "fieldtype": "Dynamic Link", "label": "Related Entity", "options": "related_entity_type", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
+    {"fieldname": "column_break_1", "fieldtype": "Column Break"},
+    {"fieldname": "type", "fieldtype": "Select", "label": "Type", "options": "\nCall\nEmail\nVisit\nMeeting", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
+    {"fieldname": "direction", "fieldtype": "Select", "label": "Direction", "options": "\nInbound\nOutbound", "in_list_view": 1},
+    {"fieldname": "section_details", "fieldtype": "Section Break", "label": "Details"},
+    {"fieldname": "summary", "fieldtype": "Text", "label": "Summary", "reqd": 1},
+    {"fieldname": "column_break_2", "fieldtype": "Column Break"},
+    {"fieldname": "next_action_date", "fieldtype": "Date", "label": "Next Action Date", "in_list_view": 1},
+    {"fieldname": "assigned_to", "fieldtype": "Link", "label": "Assigned To", "options": "User", "in_list_view": 1}
+  ],
+  "permissions": [
+    {"role": "NexPort Admin", "read": 1, "write": 1, "create": 1, "delete": 1, "email": 1, "print": 1, "report": 1, "export": 1, "share": 1},
+    {"role": "NexPort Sales", "read": 1, "write": 1, "create": 1, "delete": 1},
+    {"role": "NexPort Finance", "read": 1},
+    {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1,
+  "in_create": 1
+}
