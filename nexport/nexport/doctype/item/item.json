@@ -73,13 +73,15 @@
 			"fieldname": "category",
 			"fieldtype": "Link",
 			"label": "Category",
-			"options": "Item Category"
+			"options": "Item Category",
+			"reqd": 1
 		},
 		{
 			"fieldname": "sub_category",
 			"fieldtype": "Link",
 			"label": "Sub Category",
-			"options": "Item Subcategory"
+			"options": "Item Subcategory",
+			"reqd": 1
 		},
 		{
 			"fieldname": "column_break_basic",
