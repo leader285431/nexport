@@ -9,4 +9,5 @@ nexport.patches.backfill_all_workflow_states
 nexport.patches.rename_sales_doctypes_without_prefix
 nexport.patches.add_invoice_rate_finalized_field_defaults
 nexport.patches.sync_workspace_links_after_sales_doctype_rename
+nexport.patches.re_sync_workspace_links
 nexport.patches.backfill_workflow_states_after_sales_rename
