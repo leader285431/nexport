@@ -21,6 +21,7 @@ class PaymentTerms:
 	INSTALLMENT_3 = "3 Installments"
 	INSTALLMENT_6 = "6 Installments"
 	IMMEDIATE = "Immediate"
+	CUSTOM = "Custom"
 
 class PaymentStatus:
 	PENDING = "Pending"

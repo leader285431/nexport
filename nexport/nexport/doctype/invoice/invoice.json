@@ -142,7 +142,7 @@
    "fieldname": "payment_terms",
    "fieldtype": "Select",
    "label": "Payment Terms",
-   "options": "\nNet 30\nNet 60\nNet 90\n3 Installments\n6 Installments\nImmediate"
+   "options": "\nNet 30\nNet 60\nNet 90\n3 Installments\n6 Installments\nImmediate\nCustom"
   },
   {
    "fieldname": "payment_schedule",
