@@ -442,8 +442,8 @@ def get_available_stock(item: str) -> dict:
     if not row:
         frappe.throw(_("Item {0} not found").format(item), exc=frappe.ValidationError)
 
-    physical_total = flt(row[0].stock_physical)
-    declared_total = flt(row[0].stock_declared)
+    physical_total = flt(row[0]["stock_physical"])
+    declared_total = flt(row[0]["stock_declared"])
 
     reserved = frappe.db.sql(
         """
@@ -455,8 +455,8 @@ def get_available_stock(item: str) -> dict:
         (item,),
         as_dict=True,
     )
-    reserved_physical = flt(reserved[0].rp) if reserved else 0.0
-    reserved_declared = flt(reserved[0].rd) if reserved else 0.0
+    reserved_physical = flt(reserved[0]["rp"]) if reserved else 0.0
+    reserved_declared = flt(reserved[0]["rd"]) if reserved else 0.0
 
     return {
         "physical_total": physical_total,

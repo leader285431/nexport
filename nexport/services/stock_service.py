@@ -27,20 +27,21 @@ def auto_generate_material_requests() -> None:
 
 	created = 0
 	for item in items:
+		item_name = item["name"]
 		# Skip if an Open MR already exists for this item
 		existing = frappe.db.exists(
 			"Material Request",
-			{"item": item.name, "status": "Open"},
+			{"item": item_name, "status": "Open"},
 		)
 		if existing:
 			continue
 
 		mr = frappe.get_doc({
 			"doctype": "Material Request",
-			"item": item.name,
-			"required_qty": item.reorder_qty or 1,
-			"current_stock": item.stock_physical,
-			"reorder_level": item.reorder_level,
+			"item": item_name,
+			"required_qty": item.get("reorder_qty") or 1,
+			"current_stock": item.get("stock_physical"),
+			"reorder_level": item.get("reorder_level"),
 			"status": "Open",
 		})
 		mr.insert(ignore_permissions=True)
