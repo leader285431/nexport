@@ -1,0 +1,98 @@
+{
+	"actions": [],
+	"autoname": "NP-RES-.YYYY.-.####",
+	"naming_rule": "Expression (old style)",
+	"creation": "2026-02-21 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"item",
+		"sales_order",
+		"status",
+		"column_break_1",
+		"reserved_physical",
+		"reserved_declared",
+		"notes"
+	],
+	"fields": [
+		{
+			"fieldname": "item",
+			"fieldtype": "Link",
+			"label": "Item",
+			"options": "Item",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "sales_order",
+			"fieldtype": "Link",
+			"label": "Sales Order",
+			"options": "Sales Order",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"label": "Status",
+			"options": "Active\nReleased\nCancelled",
+			"default": "Active",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "column_break_1",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "reserved_physical",
+			"fieldtype": "Float",
+			"label": "Reserved Physical",
+			"default": "0",
+			"read_only": 1
+		},
+		{
+			"fieldname": "reserved_declared",
+			"fieldtype": "Float",
+			"default": "0",
+			"label": "Reserved Declared",
+			"read_only": 1
+		},
+		{
+			"fieldname": "notes",
+			"fieldtype": "Small Text",
+			"label": "Notes"
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"links": [],
+	"modified": "2026-02-21 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "NexPort",
+	"name": "Stock Reservation",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "NexPort Admin",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"read": 1,
+			"write": 1,
+			"role": "NexPort Warehouse"
+		},
+		{
+			"read": 1,
+			"write": 1,
+			"role": "NexPort Sales"
+		}
+	]
+}
