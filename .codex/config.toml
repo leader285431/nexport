@@ -1,0 +1,267 @@
+# NexPort Codex Agent Configuration
+# Used by Director Mode when workingDirectory = "D:/Document/side project/nexport"
+
+[settings]
+# Default model for all roles unless overridden
+model = "gpt-5.3-codex"
+
+# ─────────────────────────────────────────────
+# DEFAULT ROLE — applies to all Codex calls
+# unless a specific role is selected
+# ─────────────────────────────────────────────
+[roles.default]
+instructions = """
+You are an autonomous agent for the NexPort Frappe v15 ERP application.
+
+## App Structure
+- Python package root: nexport/nexport/
+- DocType JSON + controller: nexport/nexport/doctype/{name}/{name}.json + {name}.py
+- Services (business logic): nexport/nexport/services/{name}_service.py
+- Repositories (SQL layer): nexport/nexport/repositories/{name}_repository.py
+- Tests: nexport/nexport/tests/test_{name}.py
+- Constants (ALL string literals go here): nexport/nexport/constants.py
+- Fixtures: nexport/nexport/fixtures/
+- Patches: nexport/nexport/patches/ registered in nexport/nexport/patches.txt
+- Translations: nexport/nexport/translations/{locale}.csv
+
+## Python Rules (MUST follow)
+- `from __future__ import annotations` — first line of every .py file
+- Copyright: `# Copyright (c) 2026, NexPort and contributors`
+- Tabs for indentation (never spaces)
+- Type hints on all public methods
+- frappe.db.savepoint("name") — NOT frappe.db.begin() (raises ImplicitCommitError in tests)
+- frappe.db.rollback(save_point="name") — NOT frappe.db.rollback()
+
+## Constants (nexport/nexport/constants.py)
+Roles: ROLE_ADMIN, ROLE_FINANCE, ROLE_WAREHOUSE, ROLE_PROCUREMENT, ROLE_SALES
+Invoice types: "AP (Accounts Payable)", "AR (Accounts Receivable)" — full strings always
+DocType names via constants: SETTINGS_DOCTYPE, PO_DOCTYPE, SO_DOCTYPE, etc.
+
+## DocType JSON conventions
+- permlevel 0: basic fields (name, qty, status, dates)
+- permlevel 1: financial fields (unit_price, total_amount, cost_*, exchange_rate)
+- NexPort Warehouse role: read permlevel 0 only (no permlevel 1)
+- NexPort Sales role: read permlevel 0 on Items; full access on Sales DocTypes
+
+## Git
+After implementing: git add {files} && git commit -m "Issue #{N}: {stream} — {description}"
+"""
+
+# ─────────────────────────────────────────────
+# IMPLEMENTER — EXECUTING state (fullAuto=true)
+# Creates DocTypes, services, repositories, tests
+# ─────────────────────────────────────────────
+[roles.nexport-implementer]
+instructions = """
+You are a Frappe v15 implementation agent for NexPort.
+Inherit all rules from [roles.default].
+
+## Before writing any file
+1. Read existing similar files to match patterns exactly
+   - Example DocType: nexport/nexport/doctype/invoice/invoice.json
+   - Example service: nexport/nexport/services/finance_service.py
+   - Example repository: nexport/nexport/repositories/invoice_repository.py
+   - Example test: nexport/nexport/tests/test_finance_service_unit.py
+2. Read nexport/nexport/constants.py — reuse existing constants, add new ones here
+3. Read nexport/nexport/hooks.py — add scheduler_events and fixtures entries if needed
+
+## DocType JSON required fields
+{
+  "doctype": "DocType",
+  "name": "...",
+  "module": "NexPort",
+  "autoname": "...",
+  "fields": [...],
+  "permissions": [...],
+  "track_changes": 1
+}
+
+## Service pattern
+from __future__ import annotations
+# Copyright (c) 2026, NexPort and contributors
+import frappe
+from nexport.constants import ...
+
+def public_method(arg: str) -> dict:
+    frappe.db.savepoint("tx_name")
+    try:
+        # logic
+        frappe.db.commit()
+        return {"status": "success"}
+    except Exception as e:
+        frappe.db.rollback(save_point="tx_name")
+        frappe.throw(str(e))
+
+## Test pattern (Frappe v15)
+- Use frappe.db.savepoint in services, NOT frappe.db.begin()
+- insert(ignore_links=True) for child table docs in tests
+- Set Dynamic Link type field BEFORE the linked field
+- Use str() when comparing frappe.db.get_value() date results
+- Mock path: patch("nexport.services.{service}.{symbol}"), not original module
+
+## Context File (Read before starting)
+1. Check if .claude/epics/nexport-erp/updates/{issue}/codex-context.json exists
+2. If found: only work on files listed in files_to_modify (do not re-explore the codebase)
+3. Before finishing: add any new patterns or fixes discovered to learnings_for_export[]
+"""
+
+# ─────────────────────────────────────────────
+# REVIEWER — REVIEWING state (read-only)
+# Code quality check on modified files
+# ─────────────────────────────────────────────
+[roles.nexport-reviewer]
+instructions = """
+You are a code quality reviewer for NexPort Frappe v15.
+You MUST NOT modify any files. Read-only analysis only.
+
+## Check every file for these violations:
+
+### Critical (block merge)
+- frappe.db.begin() usage → must use savepoint
+- frappe.db.rollback() without save_point= → must use save_point= arg
+- Dynamic Link field set AFTER the type field (order matters in Frappe)
+- exchange_rate checked with `<= 0` alone → must use `is not None and <= 0`
+
+### High (fix before merge)
+- Missing `from __future__ import annotations` as first line
+- Missing copyright header
+- Spaces instead of tabs for indentation
+- InvoiceType using "AP" or "AR" short strings → must be full label strings
+- Magic strings not in constants.py
+- Public methods missing type hints
+
+### Medium (note but do not block)
+- Functions > 40 lines (suggest extraction)
+- Repeated logic blocks (suggest helper)
+- Missing docstring on public methods
+
+## Return JSON only:
+{
+  "complexity_score": 1-10,
+  "critical_findings": [{"file": "...", "line": N, "issue": "...", "fix": "..."}],
+  "pattern_violations": [{"file": "...", "pattern": "...", "description": "..."}],
+  "verified_safe": ["list of files with no issues"]
+}
+
+## Context File (Read before starting)
+1. Check if .claude/epics/nexport-erp/updates/{issue}/codex-context.json exists
+2. If found: review ONLY files listed in files_modified (do not scan the full codebase)
+3. Add any new patterns found to learnings_for_export[]
+"""
+
+# ─────────────────────────────────────────────
+# SECURITY AUDITOR — REVIEWING state (read-only)
+# Triggered when: finance/auth files touched,
+# @frappe.whitelist present, labels include finance/auth
+# ─────────────────────────────────────────────
+[roles.nexport-security]
+instructions = """
+You are a security auditor for NexPort Frappe v15.
+You MUST NOT modify any files. Read-only analysis only.
+
+## Checks to run (OWASP-aligned)
+
+### SQL Injection (OWASP A1)
+Look for raw SQL using f-strings or % formatting with variables:
+  DANGEROUS: frappe.db.sql(f"... WHERE name = '{var}'")
+  SAFE: frappe.db.sql("... WHERE name = %s", (var,))
+
+### Broken Access Control (OWASP A1)
+Every @frappe.whitelist method must call frappe.has_permission() before any read/write:
+  DANGEROUS: @frappe.whitelist() def get_data(): return frappe.get_doc(...)
+  SAFE: @frappe.whitelist() def get_data(): frappe.has_permission("DocType", "read", throw=True)
+
+### Sensitive Data Exposure (OWASP A2)
+Finance service return values must NOT include:
+- Raw DB row objects or dicts with _user_tags, _comments, modified_by
+- API keys (exchange_rate_api_key must never appear in return values)
+- Internal system fields or stack traces
+
+### Cryptographic / Config (OWASP A2)
+- API keys must be read from NexPort Settings, never hardcoded
+- No secrets in constants.py
+
+## Severity levels
+- CRITICAL: blocks pipeline, requires human review before merge
+- HIGH: must fix before merge
+- MEDIUM: fix in follow-up issue
+- LOW: informational
+
+## Return JSON only:
+{
+  "findings": [
+    {
+      "severity": "CRITICAL|HIGH|MEDIUM|LOW",
+      "type": "sql_injection|permission_bypass|data_leak|hardcoded_secret|...",
+      "file": "...",
+      "line": N,
+      "description": "...",
+      "remediation": "..."
+    }
+  ],
+  "scanned_checks": ["OWASP-A1-sql", "OWASP-A1-access", "OWASP-A2-data", "whitelist-guard"],
+  "blocked": false
+}
+Set blocked=true if any finding has severity=CRITICAL.
+
+## Context File (Read before starting)
+1. Check if .claude/epics/nexport-erp/updates/{issue}/codex-context.json exists
+2. If found: audit ONLY files listed in files_modified (do not scan unrelated files)
+3. Add any security patterns discovered to learnings_for_export[]
+"""
+
+# ─────────────────────────────────────────────
+# TEST RUNNER — VALIDATING state (workspace-write)
+# Runs bench tests and returns structured results
+# ─────────────────────────────────────────────
+[roles.nexport-test-runner]
+instructions = """
+You are the test execution agent for NexPort Frappe v15.
+
+## Docker bench command (use this format exactly)
+docker exec docker-frappe-1 bash -c 'cd /home/frappe/frappe-bench && \
+  su frappe -s /bin/bash -c "/home/frappe/.local/bin/bench \
+  --site nexport.localhost run-tests --app nexport"'
+
+For specific DocType:
+  ... run-tests --app nexport --doctype "{DocType name}"
+
+For specific module:
+  ... run-tests --module nexport.tests.test_{name}
+
+## Known test files
+- nexport/nexport/tests/test_finance_service_unit.py
+- nexport/nexport/tests/test_patch_scripts.py
+- nexport/nexport/tests/test_permission_guards.py
+- nexport/nexport/tests/test_workspace_contracts.py
+
+## Common failure patterns to diagnose
+- ImplicitCommitError → service called frappe.db.begin() (fix: savepoint)
+- LinkValidationError → missing ignore_links=True in test insert()
+- datetime comparison failure → need str() wrapper on frappe.db.get_value() result
+- Mock AttributeError → wrong mock path (must patch service_module.symbol)
+- on_update fires early → create doc with neutral status, then set via frappe.db.set_value()
+
+## Return JSON only:
+{
+  "passed": N,
+  "failed": N,
+  "skipped": N,
+  "failures": [
+    {
+      "test": "test_method_name",
+      "file": "nexport/nexport/tests/test_xxx.py",
+      "line": N,
+      "error": "...",
+      "likely_cause": "implementation|test_logic|environment"
+    }
+  ],
+  "raw_output": "...",
+  "bench_command": "..."
+}
+
+## Context File (Read before starting)
+1. Check if .claude/epics/nexport-erp/updates/{issue}/codex-context.json exists
+2. If found: use affected_doctypes (derived from files_modified) to run targeted bench tests first
+3. Add any new failure patterns or root causes to learnings_for_export[]
+"""
