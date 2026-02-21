@@ -15,6 +15,8 @@ class Item(Document):
 			self.sku = generate_sku(
 				category=self.category,
 				sub_category=self.sub_category,
+				variant_of=self.variant_of,
+				item_attributes=self.item_attributes,
 			)
 
 		if not self.markup_multiplier:
@@ -35,12 +37,20 @@ class Item(Document):
 def generate_sku(
 	category: str | None = None,
 	sub_category: str | None = None,
+	variant_of: str | None = None,
+	item_attributes: list | None = None,
 ) -> str:
-	"""Generate a unique SKU in the format CATSUBNNN (no separators).
+	"""Generate a unique SKU.
+
+	Variant items: {parent_sku}-{attr_codes} (e.g., GENGEN001-L-RED)
+	Base items: CATSUBNNN format (e.g., ELECGAD001)
 
 	The sequence number is the lowest positive integer not already used by
 	either an active Item or a Retired SKU with the same prefix.
 	"""
+	if variant_of:
+		return _generate_variant_sku(variant_of, item_attributes or [])
+
 	cat_code = _get_category_code(category)
 	sub_code = _get_subcategory_code(sub_category)
 	prefix = f"{cat_code}{sub_code}"
@@ -51,6 +61,22 @@ def generate_sku(
 	while n in used:
 		n += 1
 	return f"{prefix}{n:03d}"
+
+
+def _generate_variant_sku(parent_sku: str, item_attributes: list) -> str:
+	"""Generate variant SKU as {parent_sku}-{attr_value_codes}."""
+	attr_codes = "-".join(
+		(str(row.attribute_value or "").upper()[:6])
+		for row in item_attributes
+	)
+	base = f"{parent_sku}-{attr_codes}" if attr_codes else f"{parent_sku}-VAR"
+	# Ensure uniqueness by appending sequence if needed
+	if not frappe.db.exists("Item", base):
+		return base
+	n = 2
+	while frappe.db.exists("Item", f"{base}-{n}"):
+		n += 1
+	return f"{base}-{n}"
 
 
 def _get_category_code(category: str | None) -> str:

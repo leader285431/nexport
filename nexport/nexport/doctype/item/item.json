@@ -28,6 +28,14 @@
 		"column_break_cost",
 		"overhead_pct",
 		"markup_multiplier",
+		"section_variants",
+		"is_template",
+		"variant_of",
+		"column_break_variants",
+		"item_attributes",
+		"section_reorder",
+		"reorder_level",
+		"reorder_qty",
 		"section_suppliers",
 		"supplier_codes",
 		"section_price_history",
@@ -173,6 +181,54 @@
 			"default": "1.0",
 			"label": "Markup Multiplier",
 			"permlevel": 1
+		},
+		{
+			"fieldname": "section_variants",
+			"fieldtype": "Section Break",
+			"label": "Variants"
+		},
+		{
+			"fieldname": "is_template",
+			"fieldtype": "Check",
+			"label": "Is Template",
+			"description": "Check if this item is a template with variants"
+		},
+		{
+			"fieldname": "variant_of",
+			"fieldtype": "Link",
+			"label": "Variant Of",
+			"options": "Item",
+			"description": "Parent template item (leave blank if this is a template)"
+		},
+		{
+			"fieldname": "column_break_variants",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "item_attributes",
+			"fieldtype": "Table",
+			"label": "Item Attributes",
+			"options": "Item Attribute",
+			"description": "e.g., Size=L, Color=Red"
+		},
+		{
+			"fieldname": "section_reorder",
+			"fieldtype": "Section Break",
+			"label": "Reorder Settings"
+		},
+		{
+			"fieldname": "reorder_level",
+			"fieldtype": "Float",
+			"label": "Reorder Level",
+			"default": "0",
+			"description": "Auto-generate Material Request when stock_physical drops below this level"
+		},
+		{
+			"fieldname": "reorder_qty",
+			"fieldtype": "Float",
+			"label": "Reorder Qty",
+			"default": "0",
+			"description": "Quantity to request when reorder is triggered"
 		},
 		{
 			"fieldname": "section_suppliers",
