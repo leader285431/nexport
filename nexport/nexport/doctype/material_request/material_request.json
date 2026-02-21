@@ -1,0 +1,128 @@
+{
+	"actions": [],
+	"autoname": "NP-MR-.YYYY.-.####",
+	"naming_rule": "Expression (old style)",
+	"creation": "2026-02-21 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"item",
+		"status",
+		"column_break_1",
+		"required_qty",
+		"reorder_qty",
+		"section_stock",
+		"current_stock",
+		"reorder_level",
+		"section_po",
+		"purchase_order",
+		"notes"
+	],
+	"fields": [
+		{
+			"fieldname": "item",
+			"fieldtype": "Link",
+			"label": "Item",
+			"options": "Item",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"label": "Status",
+			"options": "Open\nOrdered\nCancelled",
+			"default": "Open",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "column_break_1",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "required_qty",
+			"fieldtype": "Float",
+			"label": "Required Qty",
+			"reqd": 1,
+			"default": "1",
+			"fetch_from": "item.reorder_qty",
+			"fetch_if_empty": 1
+		},
+		{
+			"fieldname": "reorder_qty",
+			"fieldtype": "Float",
+			"label": "Reorder Qty (Item)",
+			"fetch_from": "item.reorder_qty",
+			"read_only": 1
+		},
+		{
+			"fieldname": "section_stock",
+			"fieldtype": "Section Break",
+			"label": "Stock Info"
+		},
+		{
+			"fieldname": "current_stock",
+			"fieldtype": "Float",
+			"label": "Current Stock (Physical)",
+			"read_only": 1
+		},
+		{
+			"fieldname": "reorder_level",
+			"fieldtype": "Float",
+			"label": "Reorder Level",
+			"fetch_from": "item.reorder_level",
+			"read_only": 1
+		},
+		{
+			"fieldname": "section_po",
+			"fieldtype": "Section Break",
+			"label": "Purchase Order"
+		},
+		{
+			"fieldname": "purchase_order",
+			"fieldtype": "Link",
+			"label": "Purchase Order",
+			"options": "Purchase Order",
+			"read_only": 1
+		},
+		{
+			"fieldname": "notes",
+			"fieldtype": "Small Text",
+			"label": "Notes"
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"links": [],
+	"modified": "2026-02-21 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "NexPort",
+	"name": "Material Request",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "NexPort Admin",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"read": 1,
+			"write": 1,
+			"role": "NexPort Procurement"
+		},
+		{
+			"create": 1,
+			"read": 1,
+			"write": 1,
+			"role": "NexPort Warehouse"
+		}
+	]
+}

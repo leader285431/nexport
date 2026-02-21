@@ -40,3 +40,12 @@ fixtures = [
         ],
     },
 ]
+
+scheduler_events = {
+    "daily": [
+        "nexport.services.payment_service.mark_overdue_installments",
+        "nexport.services.payment_service.send_payment_reminders",
+        "nexport.services.exchange_rate_service.fetch_and_cache",
+        "nexport.services.stock_service.auto_generate_material_requests",
+    ],
+}
