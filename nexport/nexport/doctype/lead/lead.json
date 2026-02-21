@@ -1,0 +1,147 @@
+{
+	"actions": [],
+	"autoname": "NP-LEAD-.YYYY.-.####",
+	"creation": "2026-02-20 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"lead_name",
+		"company",
+		"source",
+		"status",
+		"lead_score",
+		"column_break_1",
+		"contact_name",
+		"email",
+		"phone",
+		"assigned_to",
+		"next_action_date",
+		"section_details",
+		"territory",
+		"notes"
+	],
+	"fields": [
+		{
+			"fieldname": "lead_name",
+			"fieldtype": "Data",
+			"label": "Lead Name",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "company",
+			"fieldtype": "Data",
+			"label": "Company",
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "source",
+			"fieldtype": "Select",
+			"label": "Source",
+			"options": "\nWebsite\nReferral\nCold Call\nAdvertisement\nSocial Media\nOther",
+			"in_list_view": 1,
+			"in_standard_filter": 1
+		},
+		{
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"label": "Status",
+			"options": "New\nContacted\nQualified\nConverted\nLost",
+			"default": "New",
+			"reqd": 1,
+			"in_list_view": 1,
+			"in_standard_filter": 1
+		},
+		{
+			"fieldname": "lead_score",
+			"fieldtype": "Int",
+			"label": "Lead Score",
+			"description": "0–100"
+		},
+		{
+			"fieldname": "column_break_1",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "contact_name",
+			"fieldtype": "Data",
+			"label": "Contact Name"
+		},
+		{
+			"fieldname": "email",
+			"fieldtype": "Data",
+			"label": "Email",
+			"options": "Email"
+		},
+		{
+			"fieldname": "phone",
+			"fieldtype": "Data",
+			"label": "Phone"
+		},
+		{
+			"fieldname": "assigned_to",
+			"fieldtype": "Link",
+			"label": "Assigned To",
+			"options": "User",
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "next_action_date",
+			"fieldtype": "Date",
+			"label": "Next Action Date",
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "section_details",
+			"fieldtype": "Section Break",
+			"label": "Details"
+		},
+		{
+			"fieldname": "territory",
+			"fieldtype": "Data",
+			"label": "Territory"
+		},
+		{
+			"fieldname": "notes",
+			"fieldtype": "Text",
+			"label": "Notes"
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"links": [],
+	"modified": "2026-02-20 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "NexPort",
+	"name": "Lead",
+	"naming_rule": "Expression (old style)",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "NexPort Admin",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"delete": 1,
+			"read": 1,
+			"report": 1,
+			"role": "NexPort Sales",
+			"write": 1
+		},
+		{
+			"read": 1,
+			"role": "NexPort Finance"
+		}
+	],
+	"sort_field": "modified",
+	"sort_order": "DESC",
+	"track_changes": 1
+}
