@@ -6,7 +6,9 @@ from __future__ import annotations
 import unittest
 from unittest.mock import MagicMock, patch, call
 
-import nexport.services.customs_service as customs_service
+from nexport.tests._frappe_test_bootstrap import load_service_module
+
+customs_service = load_service_module("nexport.services.customs_service")
 
 _SERVICE = "nexport.services.customs_service"
 
